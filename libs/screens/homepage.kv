@@ -1,0 +1,481 @@
+#:kivy 2.2.1
+<HomePage>:
+    md_bg_color: rgba(36,36,36,255)
+    MDBoxLayout: 
+        orientation: 'horizontal'
+        size_hint_y: .08
+        size_hint_x: 1
+        pos_hint: {'center_x': 0.5,'center_y': 0.96}
+        padding: 10
+        spacing: 10
+        Image:
+            source: "assets/logo.png"
+            size_hint_x: .2
+        TextInput:
+            size_hint_x: 0.8
+            hint_text: "search something"
+            background_color: "white"
+        MDIconButton:
+            icon: "chat"
+            theme_icon_color: "Custom"
+            icon_color: "white"
+            pos_hint: {'center_y': 0.5}
+    MDBoxLayout: 
+        orientation: 'horizontal'
+        size_hint_y: .09
+        size_hint_x: 1
+        pos_hint: {'center_x': 0.5,'center_y': 0.90}
+        padding: 10
+        spacing: 10
+        MDLabel:
+            text: "Cac Ban Bep"
+            halign: "center"
+            bold: True
+            font_size: 17
+            color: rgba(147,146,142,255)
+        MDLabel:
+            text: "Kho Cam Hung"
+            halign: "center"
+            bold: True
+            font_size: 17
+            color: rgba(249,248,246,255)
+            canvas.before:
+                Color:
+                    rgb: rgba(252,184,103,255)
+                Line:
+                    width: 1.2
+                    points: (self.x, self.y, self.right, self.y)
+    MDLabel:
+        text: "Trong tu lanh nha ban co gi"
+        pos_hint: {"x": 0.05, 'center_y': 0.82}
+        bold: True
+        font_size: 17
+        color: rgba(246,247,241,255)
+    MDLabel:
+        text: "Chọn đến 2 nguyên liệu"
+        pos_hint: {"x": 0.05, 'center_y': 0.79}
+        font_size: 15
+        color: rgba(235,235,235,255)
+
+    # Ingredient
+    MDScrollView:
+        do_scroll_y: False
+        size_hint_y: .09
+        pos_hint: {'center_x': .54, 'center_y': 0.71}
+        bar_width: 0
+        MDBoxLayout:
+            orientation: "vertical"
+            spacing: 10
+            size_hint_x: 1.2
+            MDBoxLayout:
+                id: ingredient_list_first
+                orientation: "horizontal"
+                spacing: 10
+                size_hint_x: 1.2
+                MDCard:
+                    elevation: 2
+                    size_hint_x: None  
+                    width: 120
+                    md_bg_color: rgba(236,111,44,255)
+                    MDBoxLayout:
+                        orientation: "horizontal"
+                        spacing: 6
+                        padding: [4, 0, 4, 0]
+                        Image:
+                            source: "assets/image/ingredient/Layer 1.png"
+                            size_hint: .4, .8
+                            halign: "right"
+                            valign: "middle"
+                            pos_hint: {'center_y': 0.5}
+                        MDLabel:
+                            text: "Cà chua"
+                            color: rgba(250,244,224,255)
+                            font_size: 16
+                
+            MDBoxLayout:
+                id: ingredient_list_second
+                orientation: "horizontal"
+                spacing: 10
+                size_hint_x: 1.2
+                bar_width: None
+                
+    # Tab
+    MDTabs:
+        id: tabs
+        size_hint_y: .1
+        pos_hint: {"center_x": .5, "center_y": 0.6}
+        background_color: rgba(36,36,36,255)
+        indicator_color: rgba(252,184,99,255)
+        padding: [20, 0, 0, 0]
+        tab_bar_height: 45
+        fixed_tab_label_width: 50
+
+        Tab:
+            title: "[size=18]Tất cả[/size]"
+            
+        
+
+    MDScrollView:
+        do_scroll_y: False
+        size_hint_y: .4
+        pos_hint: {'center_x': .54, 'center_y': 0.38}
+        bar_width: 0
+        MDBoxLayout:
+            orientation: "horizontal"
+            spacing: 8
+            size_hint_x: 6
+            
+            MDBoxLayout:
+                orientation: "vertical"
+                size_hint: None, None
+                size: 302, 270
+                canvas.before:
+                    Color:
+                        rgba: rgba(119,118,114,255) 
+                    Line:
+                        width: 1.1
+                        rectangle: self.x, self.y, self.width, self.height
+                MDFloatLayout:
+                    size_hint: None, None
+                    size: 300, 220
+                    Image: 
+                        source: "assets/image/food/muc_trung_xao_he.png"
+                        size_hint: None, None
+                        size: 340, 230
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        radius: 10
+                    MDFloatLayout:
+                        size_hint: None, None
+                        size:  340, 230
+                        md_bg_color: rgba(36,36,36,255)
+                        opacity: 0.3
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        
+                    MDBoxLayout:
+                        size_hint: None, None
+                        size: 120, 24
+                        pos_hint: {"center_x": .22, "center_y": .9}
+                        md_bg_color: rgba(36,36,36,233)
+                        radius: 6
+                        Label:
+                            id: label
+                            text: 'cách đây 1 tháng'
+                            font_size: 14
+                            color: rgba(255,255,255,255)
+                            width: self.texture_size[0] + 20
+                    Image:
+                        source: "assets/image/avatar/mai_ngo.png"
+                        size_hint: .12, .12
+                        pos_hint: {"center_x": .1, "center_y": 0.32}
+                    Label:
+                        text: 'Mai ngô'
+                        font_size: 14
+                        bold: True
+                        color: rgba(255,255,255,255)
+                        pos_hint: {"center_x": .28, "center_y": 0.32}
+                    Label:
+                        text: 'Mực trứng xào hẹ'
+                        font_size: 20
+                        bold: True
+                        color: rgba(255,255,255,255)
+                        pos_hint: {"center_x": .32, "center_y": 0.14}
+                MDFloatLayout:
+                    size_hint: None, None
+                    size: 302, 50
+                    orientation: "horizontal"
+                    md_bg_color: rgba(46,46,46,255)
+                    Image:
+                        source: "assets/image/icon_app/smile.png"
+                        size_hint: .6, .6
+                        pos_hint: {"center_x": 0.1, "center_y": 0.5}
+                    Label:
+                        text: '2'
+                        font_size: 14
+                        bold: True
+                        color: rgba(255,255,255,255)
+                        pos_hint: {"center_x": .13, "center_y": 0.5}
+                    Image:
+                        source: "assets/image/icon_app/heart.png"
+                        size_hint: .6, .6
+                        pos_hint: {"center_x": 0.27, "center_y": 0.5}
+                    Label:
+                        text: '2'
+                        font_size: 14
+                        bold: True
+                        color: rgba(255,255,255,255)
+                        pos_hint: {"center_x": .3, "center_y": 0.5}
+                    Image:
+                        source: "assets/image/icon_app/hank.png"
+                        size_hint: .6, .6  
+                        pos_hint: {"center_x": 0.44, "center_y": 0.5}
+                    Label:
+                        text: '2'
+                        font_size: 14
+                        bold: True
+                        color: rgba(255,255,255,255)
+                        pos_hint: {"center_x": .47, "center_y": 0.5} 
+                    MDFloatLayout:
+                        size_hint: None, None
+                        size: 50, 24
+                        md_bg_color: rgba(118,118,118,255)
+                        pos_hint: {"center_x": .87, "center_y": 0.5} 
+                        radius: 10
+                        
+            MDBoxLayout:
+                orientation: "vertical"
+                size_hint: None, None
+                size: 302, 272
+                canvas.before:
+                    Color:
+                        rgba: rgba(119,118,114,255) 
+                    Line:
+                        width: 1.1
+                        rectangle: self.x, self.y, self.width, self.height
+                MDFloatLayout:
+                    size_hint: None, None
+                    size: 300, 220
+                    Image: 
+                        source: "assets/image/food/muc_trung_xao_he.png"
+                        size_hint: None, None
+                        size: 340, 230
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        radius: 10
+                    MDFloatLayout:
+                        size_hint: None, None
+                        size:  340, 230
+                        md_bg_color: rgba(36,36,36,255)
+                        opacity: 0.3
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        
+                    MDBoxLayout:
+                        size_hint: None, None
+                        size: 120, 24
+                        pos_hint: {"center_x": .22, "center_y": .9}
+                        md_bg_color: rgba(36,36,36,233)
+                        radius: 6
+                        Label:
+                            id: label
+                            text: 'cách đây 1 tháng'
+                            font_size: 14
+                            color: rgba(255,255,255,255)
+                            width: self.texture_size[0] + 20
+                    Image:
+                        source: "assets/image/avatar/mai_ngo.png"
+                        size_hint: .12, .12
+                        pos_hint: {"center_x": .1, "center_y": 0.34}
+                    Label:
+                        text: 'Mai ngô'
+                        font_size: 14
+                        bold: True
+                        color: rgba(255,255,255,255)
+                        pos_hint: {"center_x": .28, "center_y": 0.34}
+                    Label:
+                        text: 'Mực trứng xào hẹ'
+                        font_size: 20
+                        bold: True
+                        color: rgba(255,255,255,255)
+                        pos_hint: {"center_x": .28, "center_y": 0.14}
+                MDFloatLayout:
+                    size_hint: None, None
+                    size: 302, 50
+                    orientation: "horizontal"
+                    md_bg_color: rgba(46,46,46,255)
+                    Image:
+                        source: "assets/image/icon_app/smile.png"
+                        size_hint: .6, .6
+                        pos_hint: {"center_x": 0.1, "center_y": 0.5}
+                    Image:
+                        source: "assets/image/icon_app/heart.png"
+                        size_hint: .6, .6
+                        pos_hint: {"center_x": 0.27, "center_y": 0.5}
+                    Image:
+                        source: "assets/image/icon_app/hank.png"
+                        size_hint: .6, .6  
+                        pos_hint: {"center_x": 0.44, "center_y": 0.5}
+            MDBoxLayout:
+                orientation: "vertical"
+                size_hint: None, None
+                size: 302, 272
+                canvas.before:
+                    Color:
+                        rgba: rgba(119,118,114,255) 
+                    Line:
+                        width: 1.1
+                        rectangle: self.x, self.y, self.width, self.height
+                MDFloatLayout:
+                    size_hint: None, None
+                    size: 300, 220
+                    Image: 
+                        source: "assets/image/food/muc_trung_xao_he.png"
+                        size_hint: None, None
+                        size: 340, 230
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        radius: 10
+                    MDFloatLayout:
+                        size_hint: None, None
+                        size:  340, 230
+                        md_bg_color: rgba(36,36,36,255)
+                        opacity: 0.3
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        
+                    MDBoxLayout:
+                        size_hint: None, None
+                        size: 120, 24
+                        pos_hint: {"center_x": .22, "center_y": .9}
+                        md_bg_color: rgba(36,36,36,233)
+                        radius: 6
+                        Label:
+                            id: label
+                            text: 'cách đây 1 tháng'
+                            font_size: 14
+                            color: rgba(255,255,255,255)
+                            width: self.texture_size[0] + 20
+                    Image:
+                        source: "assets/image/avatar/mai_ngo.png"
+                        size_hint: .12, .12
+                        pos_hint: {"center_x": .1, "center_y": 0.34}
+                    Label:
+                        text: 'Mai ngô'
+                        font_size: 14
+                        bold: True
+                        color: rgba(255,255,255,255)
+                        pos_hint: {"center_x": .28, "center_y": 0.34}
+                    Label:
+                        text: 'Mực trứng xào hẹ'
+                        font_size: 20
+                        bold: True
+                        color: rgba(255,255,255,255)
+                        pos_hint: {"center_x": .28, "center_y": 0.14}
+                MDFloatLayout:
+                    size_hint: None, None
+                    size: 302, 50
+                    orientation: "horizontal"
+                    md_bg_color: rgba(46,46,46,255)
+                    Image:
+                        source: "assets/image/icon_app/smile.png"
+                        size_hint: .6, .6
+                        pos_hint: {"center_x": 0.1, "center_y": 0.5}
+                    Image:
+                        source: "assets/image/icon_app/heart.png"
+                        size_hint: .6, .6
+                        pos_hint: {"center_x": 0.27, "center_y": 0.5}
+                    Image:
+                        source: "assets/image/icon_app/hank.png"
+                        size_hint: .6, .6  
+                        pos_hint: {"center_x": 0.44, "center_y": 0.5}
+            MDBoxLayout:
+                orientation: "vertical"
+                size_hint: None, None
+                size: 302, 272
+                canvas.before:
+                    Color:
+                        rgba: rgba(119,118,114,255) 
+                    Line:
+                        width: 1.1
+                        rectangle: self.x, self.y, self.width, self.height
+                MDFloatLayout:
+                    size_hint: None, None
+                    size: 300, 220
+                    Image: 
+                        source: "assets/image/food/muc_trung_xao_he.png"
+                        size_hint: None, None
+                        size: 340, 230
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        radius: 10
+                    MDFloatLayout:
+                        size_hint: None, None
+                        size:  340, 230
+                        md_bg_color: rgba(36,36,36,255)
+                        opacity: 0.3
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        
+                    MDBoxLayout:
+                        size_hint: None, None
+                        size: 120, 24
+                        pos_hint: {"center_x": .22, "center_y": .9}
+                        md_bg_color: rgba(36,36,36,233)
+                        radius: 6
+                        Label:
+                            id: label
+                            text: 'cách đây 1 tháng'
+                            font_size: 14
+                            color: rgba(255,255,255,255)
+                            width: self.texture_size[0] + 20
+                    Image:
+                        source: "assets/image/avatar/mai_ngo.png"
+                        size_hint: .12, .12
+                        pos_hint: {"center_x": .1, "center_y": 0.34}
+                    Label:
+                        text: 'Mai ngô'
+                        font_size: 14
+                        bold: True
+                        color: rgba(255,255,255,255)
+                        pos_hint: {"center_x": .28, "center_y": 0.34}
+                    Label:
+                        text: 'Mực trứng xào hẹ'
+                        font_size: 20
+                        bold: True
+                        color: rgba(255,255,255,255)
+                        pos_hint: {"center_x": .28, "center_y": 0.14}
+                MDFloatLayout:
+                    size_hint: None, None
+                    size: 302, 50
+                    orientation: "horizontal"
+                    md_bg_color: rgba(46,46,46,255)
+                    Image:
+                        source: "assets/image/icon_app/smile.png"
+                        size_hint: .6, .6
+                        pos_hint: {"center_x": 0.1, "center_y": 0.5}
+                    Image:
+                        source: "assets/image/icon_app/heart.png"
+                        size_hint: .6, .6
+                        pos_hint: {"center_x": 0.27, "center_y": 0.5}
+                    Image:
+                        source: "assets/image/icon_app/hank.png"
+                        size_hint: .6, .6  
+                        pos_hint: {"center_x": 0.44, "center_y": 0.5}
+    MDBoxLayout:
+        size_hint: None, None
+        size: 340, 38
+        md_bg_color: rgba(118,118,118,255)
+        pos_hint: {'center_x': .5, 'center_y': 0.13}
+        padding: 112
+        radius: 10
+        MDIcon:
+            icon: "magnify"
+            pos_hint: {'center_x': .5, 'center_y': 0.5}
+            color: rgba(245,245,243,255)
+            font_size: 24
+        Label:
+            id: label
+            text: 'Gợi ý khác'
+            font_size: 16
+            color: rgba(255,255,255,255)
+            width: self.texture_size[0] + 20
+            pos_hint: {'center_x': .5, 'center_y': 0.5}
+    MDFloatLayout:
+        id: bottom_navigation
+        md_bg_color: rgba(60,60,60,255)
+        size_hint_y: .08
+        MDIconButton:
+            id: account_item
+            pos_hint: {'center_x': .9, 'center_y': 0.5}
+            icon: "home"
+            theme_text_color: "Custom"
+            color: rgba(255,255,255,255)
+            font_size: 36
+            on_release: app.root.current = "login"
+        
+
+
+        
+        
+                
+                
+            
+               
+           
+
+
+
+        

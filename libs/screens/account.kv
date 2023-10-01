@@ -1,0 +1,90 @@
+#:kivy 2.2.1
+<Account>:
+    MDFloatLayout:
+        md_bg_color: rgba(15,15,15,255)
+        MDFloatLayout:
+            size_hint_y: .36
+            pos_hint: {"center_y": 0.83}
+            md_bg_color: rgba(36, 36, 36, 255)
+
+            MDIconButton:
+                icon: "chevron-left"
+                pos_hint: {"center_x": 0.08, "center_y": 0.88}
+                theme_text_color: "Custom"
+                icon_color: rgba(248,245,242,255)
+                icon_size: 30
+                on_release: app.root.current = "homepage"
+            MDIconButton:
+                icon: "share-variant-outline"
+                pos_hint: {"center_x": 0.92, "center_y": 0.88}
+                theme_text_color: "Custom"
+                icon_color: rgba(248,245,242,255)
+                icon_size: 28
+
+            Image:
+                source: "assets/image/avatar/mai_ngo.png"
+                pos_hint: {"center_x": 0.14, "center_y": 0.58}
+                size_hint: .5, .5
+            
+            MDLabel:
+                text: "Thien Le Van"
+                pos_hint: {"center_x": 0.8, "center_y": 0.64}
+                font_name: "BPoppins"
+                font_size: 20
+                color: rgba(255, 255, 255, 255)
+            MDLabel:
+                text: "@cook_131943"
+                pos_hint: {"center_x": 0.8, "center_y": 0.54}
+                font_name: "RRoboto"
+                font_size: 16
+                color: rgba(248,245,242,255)
+            MDLabel:
+                text: "0 Bạn bếp"
+                pos_hint: {"center_x": 0.56, "center_y": 0.32}
+                font_name: "RRoboto"
+                font_size: 14
+                color: rgba(248,245,242,255)
+            MDLabel:
+                text: "0 Người quan tâm"
+                font_name: "RRoboto"
+                pos_hint: {"center_x": 0.86, "center_y": 0.32}
+                font_name: "MPoppins"
+                font_size: 14
+                color: rgba(248,245,242,255)
+            MDFlatButton:
+                text: "Sửa nội dung"
+                size_hint_x: 0.9
+                pos_hint: {"center_x": 0.5, "center_y": 0.14}
+                font_name: "RRoboto"
+                theme_text_color: "Custom"
+                text_color: rgba(248,245,242,255)
+                line_width: 1.1
+                border_radius: [20]  # Góc bo tròn (cùng cho tất cả bốn góc)
+                line_color: rgba(147, 146, 144, 255)
+        Image:
+            source: "assets/image/icon_app/cook.png"
+            pos_hint: {"center_x": 0.5, "center_y": 0.52}
+            size_hint: .26, .26
+        MDLabel:
+            text: "Chưa có hoạt động bếp nào"
+            pos_hint: {"center_y": 0.41}
+            halign: "center"
+            font_name: "MRoboto"
+            color: rgba(248,245,242,255)
+            font_size: 22
+        MDLabel:
+            text: "Chia sẻ món mới, bí quyết mới, Cooksnap, hay tạo Cookbook mới"
+            pos_hint: {"center_y": 0.35}
+            halign: "center"
+            font_name: "RRoboto"
+            color: rgba(248,245,242,255)
+            font_size: 16
+        MDFlatButton:
+            text: "Bắt đầu nào!"
+            size_hint_x: 0.38
+            pos_hint: {"center_x": 0.5, "center_y": 0.26}
+            font_name: "RRoboto"
+            theme_text_color: "Custom"
+            md_bg_color: rgba(248, 245, 242, 255)
+        
+        

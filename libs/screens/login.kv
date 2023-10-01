@@ -1,0 +1,56 @@
+#:kivy 2.2.1
+<Login>:
+    MDFloatLayout:
+        md_bg_color: rgba(15,15,15,255)
+        MDIconButton:
+            icon: "close"
+            pos_hint: {"center_x": 0.91, "center_y": 0.95}
+            font_size: 24
+            theme_text_color: "Custom"
+            text_color: rgba(255, 255, 255, 255)
+            on_release: app.root.current = "homepage"
+        MDLabel:
+            text: "Chào mừng đến"
+            font_size: 22
+            color: rgba(255, 255, 255, 255)
+            pos_hint: {"center_y": 0.84}
+            halign: "center"
+        Image:
+            source: "assets/image/logo/logo_text.png"
+            size_hint: .5, .5
+            pos_hint: {"center_x": 0.5, "center_y": 0.76}
+        MDTextField:
+            id: input_email
+            size_hint_x: .76
+            pos_hint: {"center_x": 0.5, "center_y": 0.56}
+            hint_text: "username"
+            helper_text_mode: "persistent"
+            text_color_normal: rgba(255, 255, 255, 255)
+            text_color_focus: rgba(255, 255, 255, 255)
+            line_color_normal: rgba(113, 112, 111, 255)
+            line_color_focus: rgba(252, 183, 101, 255)
+            hint_text_color_normal: 1, 1, 1, 1 
+            hint_text_color_focus: rgba(155, 154, 151, 255)
+            on_text_validate: app.on_text_validate()
+
+        MDTextField:
+            id: input_password
+            size_hint_x: .76
+            pos_hint: {"center_x": 0.5, "center_y": 0.46}
+            hint_text: "password"
+            helper_text_mode: "persistent"
+            text_color_normal: rgba(255, 255, 255, 255)
+            text_color_focus: rgba(255, 255, 255, 255)
+            line_color_normal: rgba(113, 112, 111, 255)
+            line_color_focus: rgba(252, 183, 101, 255)
+            hint_text_color_normal: 1, 1, 1, 1 
+            hint_text_color_focus: rgba(155, 154, 151, 255)
+            on_text_validate: app.on_text_validate()
+
+        Button:
+            id: button
+            text: "Login"
+            color: rgba(255, 255, 255, 255)
+            pos_hint:  {"center_x": 0.5, "center_y": 0.30}
+            size_hint: .7, .08
+            on_release: root.login()

@@ -1,0 +1,20 @@
+#:kivy 2.2.1
+<IngredientCard>:
+    elevation: 2
+    size_hint_x: None  
+    width: 120
+    md_bg_color: rgba(119,120,115,255)
+    MDBoxLayout:
+        orientation: "horizontal"
+        spacing: 6
+        padding: [4, 0, 4, 0]
+        Image:
+            source: root.ingredientImage
+            size_hint: .4, .8
+            halign: "right"
+            valign: "middle"
+            pos_hint: {'center_y': 0.5}
+        MDLabel:
+            text: root.ingredientName
+            color: rgba(250,244,224,255)
+            font_size: 16
