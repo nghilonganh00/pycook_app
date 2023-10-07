@@ -1,4 +1,5 @@
 #:kivy 2.2.1
+
 <HomePage>:
     md_bg_color: rgba(36,36,36,255)
     MDBoxLayout: 
@@ -101,7 +102,7 @@
                 
     # Tab
     MDTabs:
-        id: tabs
+        id: hashtag_list
         size_hint_y: .1
         pos_hint: {"center_x": .5, "center_y": 0.6}
         background_color: rgba(36,36,36,255)
@@ -110,9 +111,9 @@
         tab_bar_height: 45
         fixed_tab_label_width: 50
 
-        Tab:
+        Hashtag:
             title: "[size=18]Tất cả[/size]"
-            
+        
         
 
     MDScrollView:
@@ -121,106 +122,11 @@
         pos_hint: {'center_x': .54, 'center_y': 0.38}
         bar_width: 0
         MDBoxLayout:
+            id: food_by_hashtag
             orientation: "horizontal"
             spacing: 8
             size_hint_x: 6
-            
-            MDBoxLayout:
-                orientation: "vertical"
-                size_hint: None, None
-                size: 302, 270
-                canvas.before:
-                    Color:
-                        rgba: rgba(119,118,114,255) 
-                    Line:
-                        width: 1.1
-                        rectangle: self.x, self.y, self.width, self.height
-                MDFloatLayout:
-                    size_hint: None, None
-                    size: 300, 220
-                    Image: 
-                        source: "assets/image/food/muc_trung_xao_he.png"
-                        size_hint: None, None
-                        size: 340, 230
-                        pos_hint: {"center_x": .5, "center_y": .5}
-                        radius: 10
-                    MDFloatLayout:
-                        size_hint: None, None
-                        size:  340, 230
-                        md_bg_color: rgba(36,36,36,255)
-                        opacity: 0.3
-                        pos_hint: {"center_x": .5, "center_y": .5}
-                        
-                    MDBoxLayout:
-                        size_hint: None, None
-                        size: 120, 24
-                        pos_hint: {"center_x": .22, "center_y": .9}
-                        md_bg_color: rgba(36,36,36,233)
-                        radius: 6
-                        Label:
-                            id: label
-                            text: 'cách đây 1 tháng'
-                            font_size: 14
-                            color: rgba(255,255,255,255)
-                            width: self.texture_size[0] + 20
-                    Image:
-                        source: "assets/image/avatar/mai_ngo.png"
-                        size_hint: .12, .12
-                        pos_hint: {"center_x": .1, "center_y": 0.32}
-                    Label:
-                        text: 'Mai ngô'
-                        font_size: 14
-                        bold: True
-                        color: rgba(255,255,255,255)
-                        pos_hint: {"center_x": .28, "center_y": 0.32}
-                    Label:
-                        text: 'Mực trứng xào hẹ'
-                        font_size: 20
-                        bold: True
-                        color: rgba(255,255,255,255)
-                        pos_hint: {"center_x": .32, "center_y": 0.14}
-                MDFloatLayout:
-                    size_hint: None, None
-                    size: 302, 50
-                    orientation: "horizontal"
-                    md_bg_color: rgba(46,46,46,255)
-                    Image:
-                        source: "assets/image/icon_app/smile.png"
-                        size_hint: .6, .6
-                        pos_hint: {"center_x": 0.1, "center_y": 0.5}
-                    Label:
-                        text: '2'
-                        font_size: 14
-                        bold: True
-                        color: rgba(255,255,255,255)
-                        pos_hint: {"center_x": .13, "center_y": 0.5}
-                    Image:
-                        source: "assets/image/icon_app/heart.png"
-                        size_hint: .6, .6
-                        pos_hint: {"center_x": 0.27, "center_y": 0.5}
-                    Label:
-                        text: '2'
-                        font_size: 14
-                        bold: True
-                        color: rgba(255,255,255,255)
-                        pos_hint: {"center_x": .3, "center_y": 0.5}
-                    Image:
-                        source: "assets/image/icon_app/hank.png"
-                        size_hint: .6, .6  
-                        pos_hint: {"center_x": 0.44, "center_y": 0.5}
-                    Label:
-                        text: '2'
-                        font_size: 14
-                        bold: True
-                        color: rgba(255,255,255,255)
-                        pos_hint: {"center_x": .47, "center_y": 0.5} 
-                    MDFloatLayout:
-                        size_hint: None, None
-                        size: 50, 24
-                        md_bg_color: rgba(118,118,118,255)
-                        pos_hint: {"center_x": .87, "center_y": 0.5} 
-                        radius: 10
-                        
+                    
             MDBoxLayout:
                 orientation: "vertical"
                 size_hint: None, None
@@ -458,13 +364,49 @@
         md_bg_color: rgba(60,60,60,255)
         size_hint_y: .08
         MDIconButton:
-            id: account_item
-            pos_hint: {'center_x': .9, 'center_y': 0.5}
+            id: add_item
+            pos_hint: {'center_x': .1, 'center_y': 0.5}
             icon: "home"
             theme_text_color: "Custom"
-            color: rgba(255,255,255,255)
+            icon_color: rgba(206, 206, 205, 255)
             font_size: 36
             on_release: app.root.current = "login"
+
+        MDIconButton:
+            id: add_item
+            pos_hint: {'center_x': .3, 'center_y': 0.5}
+            icon: "magnify"
+            theme_text_color: "Custom"
+            icon_color: rgba(206, 206, 205, 255)
+            font_size: 36
+            on_release: app.root.current = "login"
+
+        MDIconButton:
+            id: add_item
+            pos_hint: {'center_x': .5, 'center_y': 0.5}
+            icon: "plus-box"
+            theme_text_color: "Custom"
+            icon_color: rgba(206, 206, 205, 255)
+            font_size: 36
+            on_release: app.root.current = "login"
+        MDIconButton:
+            id: add_item
+            pos_hint: {'center_x': .7, 'center_y': 0.5}
+            icon: "email-outline"
+            theme_text_color: "Custom"
+            icon_color: rgba(206, 206, 205, 255)
+            font_size: 36
+            on_release: app.root.current = "login"
+        MDIconButton:
+            id: account_item
+            pos_hint: {'center_x': .9, 'center_y': 0.5}
+            icon: "account-circle-outline"
+            theme_text_color: "Custom"
+            icon_color: rgba(206, 206, 205, 255)
+            font_size: 36
+            on_release: app.root.current = "login"
+        
+        
         
 
 

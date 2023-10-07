@@ -2,16 +2,16 @@ from kivy.app import App
 from kivymd.uix.screen import MDScreen
 from kivy.uix.image import Image
 from kivymd.uix.button import MDIconButton
-from kivymd.uix.card import MDCard
-# from kivymd.uix.tab import 
+import requests
 
 from libs.components.ingredientCard import IngredientCard
-import requests
+from libs.components.hashtag import Hashtag
+from libs.components.foodCard import FoodCard
 
 class HomePage(MDScreen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.first_time = True # Kiem tra day co phai lan dau truy cap vao Homepage
+        self.first_time = True
 
     def on_enter(self):
         app = App.get_running_app()
@@ -20,38 +20,54 @@ class HomePage(MDScreen):
             self.first_time = False
 
             #-------- Get Ingredient list from server----------
-            ingredient_list = []
+            ingredients = []
             try:
                 api_url = "http://localhost:5000/api/ingredient/getAll"
                 response = requests.get(api_url)
                 
                 if response.status_code == 200:
-                    ingredient_list = response.json()
+                    ingredients = response.json()
                 else:
                     print("Loi dang nhap")
             except Exception as e:
                 print(e)
             
             ingredient_list_first = self.ids.ingredient_list_first
-            for ingredient in ingredient_list:
-                ingredient_card = IngredientCard(ingredientName = ingredient['ingredientName'], ingredientImage=ingredient['blobImage'])
+            for ingredient in ingredients:
+                ingredient_card = IngredientCard(ingredientName = ingredient['ingredientName'], ingredientImage=ingredient['ingredientImage'])
                 ingredient_list_first.add_widget(ingredient_card)
             
-            #-------- Get Tabs list from server----------
+            #-------- Get Hashtag list from server----------
+            hashtags = []
             try:
-                api_url = "http://localhost:5000/api/tab/getAll"
+                api_url = "http://localhost:5000/api/hashtag/getAll"
                 response = requests.get(api_url)
                 
                 if response.status_code == 200:
-                    tab_list = response.json()
+                    hashtags = response.json()
             except Exception as e:
                 print(e)
 
-            tabs = self.ids.tabs
-            for tab in tab_list:
-                tab_card = MDTab(ingredientName = ingredient['ingredientName'], ingredientImage=ingredient['blobImage'])
-                ingredient_list_first.add_widget(ingredient_card)
+            hashtag_list = self.ids.hashtag_list
+            for hashtag in hashtags:
+                hashtag_tab = Hashtag(hashtagName=hashtag['hashtagName'])
+                hashtag_list.add_widget(hashtag_tab)
             
+            #-------- Get Food list by Hashtag----------
+            foods = []
+            try:
+                api_url = "http://localhost:5000/api/food/getAll"
+                response = requests.get(api_url)
+                
+                if response.status_code == 200:
+                    foods = response.json()
+            except Exception as e:
+                print(e)
+
+            food_by_hashtag = self.ids.food_by_hashtag
+            for food in foods:
+                food_card = FoodCard(foodName=food['foodName'], foodImage=food['foodImage'], chefAvatar=food['chef']['avatar'], chefFullname=food['chef']['fullname'], chefPycookID=food['chef']['pycookID'], heartTotal=food['heartTotal'], likeTotal=food['likeTotal'], deliciousTotal=food['deliciousTotal'], createdDate=food['created_at'])
+                food_by_hashtag.add_widget(food_card)
 
 
         # Account bottom nav item
@@ -64,12 +80,10 @@ class HomePage(MDScreen):
                 pos_hint={'center_x': .9, 'center_y': 0.5},
                 icon='facebook',
                 theme_text_color='Custom',
-                color=(1, 1, 1, 1),  # Màu trắng
                 font_size=36
             )
             avatar = Image(
-                source = "assets/image/avatar/mai_ngo.png"
+                source = app.user['avatar']
             )
             icon_button.add_widget(avatar)
             bottom_navigation.add_widget(icon_button)
-

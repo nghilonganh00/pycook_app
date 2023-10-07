@@ -1,0 +1,31 @@
+#:kivy 2.2.1
+#: import Window kivy.core.window.Window
+
+<DetailFood>:
+    md_bg_color: rgba(36,36,36,255)
+    MDScrollView:
+        bar_width: 0
+		MDFloatLayout:
+			orientation: 'vertical'
+			size_hint_y: 1.5
+            MDBoxLayout:
+                size_hint_x: 1
+                Image:
+                    source: "assets/image/food/rau_muong_xao.png"
+                    size_hint_x: 1 
+                    pos_hint: {'center_y': .84}
+
+            MDLabel:
+                text: "Rau muong luoc"
+                color: rgba(250,244,224,255)
+                font_size: 25
+                pos_hint: {'center_x': 0.52, 'center_y': 0.652}
+            
+    MDIconButton:
+        pos_hint: {'center_x': .1, 'center_y': 0.96}
+        icon: "arrow-left"
+        theme_text_color: "Custom"
+        icon_color: rgba(255, 255, 255, 255)
+        font_size: 36
+        on_release: app.root.current = "homepage"
+       

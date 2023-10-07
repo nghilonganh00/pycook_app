@@ -1,0 +1,98 @@
+#:kivy 2.2.1
+
+<FoodCard>:
+    orientation: "vertical"
+    size_hint: None, None
+    size: 302, 270
+    canvas.before:
+        Color:
+            rgba: rgba(119,118,114,255) 
+        Line:
+            width: 1.1
+            rectangle: self.x, self.y, self.width, self.height
+    MDFloatLayout:
+        size_hint: None, None
+        size: 300, 220
+        Image: 
+            source: root.foodImage
+            size_hint: None, None
+            size: 340, 230
+            pos_hint: {"center_x": .5, "center_y": .5}
+            radius: 10
+        MDFloatLayout:
+            size_hint: None, None
+            size:  340, 230
+            md_bg_color: rgba(36,36,36,255)
+            opacity: 0.3
+            pos_hint: {"center_x": .5, "center_y": .5}
+            
+        MDBoxLayout:
+            size_hint: None, None
+            size: 120, 24
+            pos_hint: {"center_x": .22, "center_y": .9}
+            md_bg_color: rgba(36,36,36,233)
+            radius: 6
+            Label:
+                id: label
+                text: root.createdDate
+                font_size: 14
+                color: rgba(255,255,255,255)
+                width: self.texture_size[0] + 20
+        Image:
+            source: root.chefAvatar
+            size_hint: .12, .12
+            pos_hint: {"center_x": .1, "center_y": 0.32}
+        Label:
+            text: root.chefFullname
+            font_size: 14
+            bold: True
+            color: rgba(255,255,255,255)
+            pos_hint: {"center_x": .28, "center_y": 0.32}
+        Label:
+            text: root.foodName
+            font_size: 20
+            bold: True
+            color: rgba(255,255,255,255)
+            pos_hint: {"center_x": .32, "center_y": 0.14}
+    MDFloatLayout:
+        size_hint: None, None
+        size: 302, 50
+        orientation: "horizontal"
+        md_bg_color: rgba(46,46,46,255)
+        Image:
+            source: "assets/image/icon_app/smile.png"
+            size_hint: .6, .6
+            pos_hint: {"center_x": 0.1, "center_y": 0.5}
+        Label:
+            text: root.deliciousTotal
+            font_size: 14
+            bold: True
+            color: rgba(255,255,255,255)
+            pos_hint: {"center_x": .13, "center_y": 0.5}
+        Image:
+            source: "assets/image/icon_app/heart.png"
+            size_hint: .6, .6
+            pos_hint: {"center_x": 0.27, "center_y": 0.5}
+        Label:
+            text: root.heartTotal
+            font_size: 14
+            bold: True
+            color: rgba(255,255,255,255)
+            pos_hint: {"center_x": .3, "center_y": 0.5}
+        Image:
+            source: "assets/image/icon_app/hank.png"
+            size_hint: .6, .6  
+            pos_hint: {"center_x": 0.44, "center_y": 0.5}
+        Label:
+            text: root.likeTotal
+            font_size: 14
+            bold: True
+            color: rgba(255,255,255,255)
+            pos_hint: {"center_x": .47, "center_y": 0.5} 
+        MDFloatLayout:
+            size_hint: None, None
+            size: 50, 24
+            md_bg_color: rgba(118,118,118,255)
+            pos_hint: {"center_x": .87, "center_y": 0.5} 
+            radius: 10
+                

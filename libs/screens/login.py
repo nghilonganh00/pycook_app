@@ -1,9 +1,7 @@
 import requests
 from kivy.app import App
 from kivymd.uix.screen import MDScreen
-from kivy.lang import Builder
 
-# Builder.load_file("libs\screens\homepage.kv")
 class Login(MDScreen):
     def login(self):
         app = App.get_running_app()
@@ -23,7 +21,8 @@ class Login(MDScreen):
             if response.status_code == 200:
                 self.parent.current = "homepage"
                 app.is_logged_in = True
-                # bottom_navigation.remove_widget(self.ids.account)
+                app.user = response.json()
+                print(response.json())
             else:
                 print("Loi dang nhap")
         except Exception as e:

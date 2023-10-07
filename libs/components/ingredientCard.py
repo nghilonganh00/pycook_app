@@ -7,4 +7,4 @@ class IngredientCard(MDCard):
     def __init__(self, ingredientName, ingredientImage, **kwargs):
         super(IngredientCard, self).__init__(**kwargs)
         self.ingredientName = ingredientName
-        self.ingredientImage =  f"data:image/png;base64,{ingredientImage}"
+        self.ingredientImage =  ingredientImage
