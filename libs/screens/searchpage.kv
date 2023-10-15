@@ -1,0 +1,108 @@
+#:kivy 2.2.1
+
+<SearchPage>:
+    md_bg_color: rgba(15,15,15,255)
+    MDScrollView:
+        bar_width: 0
+		MDBoxLayout:
+			orientation: 'vertical'
+			size_hint_y: None 
+            height: self.minimum_height
+            padding: 16, 0, 10, 0
+            MDBoxLayout:
+                orientation: 'vertical'
+                size_hint_y: None 
+                height: self.minimum_height + 100
+                MDLabel:
+                    text: "Món mới nhất (" + root.result_total + ")"
+                    color: rgba(248,246,242,255)
+                    font_size: 20
+                    font_name: 'BRoboto'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+            MDBoxLayout:
+                id: result_food
+                orientation: 'vertical'
+                size_hint_y: None
+                height: self.minimum_height + 40
+                spacing: 20
+                
+                
+    MDFloatLayout: 
+        orientation: 'horizontal'
+        size_hint_y: .08
+        size_hint_x: 1.1
+        pos_hint: {'center_x': 0.48,'center_y': 0.96}
+        padding: 10
+        spacing: 10
+        md_bg_color: rgba(55, 55, 55, 255)
+        
+        MDIconButton:
+            pos_hint: {'center_x': .14, 'center_y': 0.5}
+            icon: "arrow-left"
+            theme_text_color: "Custom"
+            icon_color: rgba(255, 255, 255, 255)
+            font_size: 36
+            on_release: app.root.current = "homepage"
+        TextInput:
+            id: search_input
+            size_hint_x: 0.8
+            hint_text: "Gõ vào tên món ăn"
+            background_color: "white"
+            pos_hint: {'center_x': 0.62, 'center_y': .26}
+            background_color: 1, 1, 1, 0
+            foreground_color: 1, 1, 1, 1
+        MDIconButton:
+            pos_hint: {'center_x': .9, 'center_y': 0.5}
+            icon: "magnify"
+            theme_text_color: "Custom"
+            icon_color: rgba(255, 255, 255, 255)
+            font_size: 36
+            on_release: root.search_name()
+
+    MDFloatLayout:
+        id: bottom_navigation
+        md_bg_color: rgba(60,60,60,255)
+        size_hint_y: .08
+        MDIconButton:
+            id: add_item
+            pos_hint: {'center_x': .1, 'center_y': 0.5}
+            icon: "home"
+            theme_text_color: "Custom"
+            icon_color: rgba(206, 206, 205, 255)
+            font_size: 36
+            on_release: app.root.current = "login"
+
+        MDIconButton:
+            id: add_item
+            pos_hint: {'center_x': .3, 'center_y': 0.5}
+            icon: "magnify"
+            theme_text_color: "Custom"
+            icon_color: rgba(206, 206, 205, 255)
+            font_size: 36
+            on_release: app.root.current = "login"
+
+        MDIconButton:
+            id: add_item
+            pos_hint: {'center_x': .5, 'center_y': 0.5}
+            icon: "plus-box"
+            theme_text_color: "Custom"
+            icon_color: rgba(206, 206, 205, 255)
+            font_size: 36
+            on_release: app.root.current = "login"
+        MDIconButton:
+            id: add_item
+            pos_hint: {'center_x': .7, 'center_y': 0.5}
+            icon: "email-outline"
+            theme_text_color: "Custom"
+            icon_color: rgba(206, 206, 205, 255)
+            font_size: 36
+            on_release: app.root.current = "login"
+        MDIconButton:
+            id: account_item
+            pos_hint: {'center_x': .9, 'center_y': 0.5}
+            icon: "account-circle-outline"
+            theme_text_color: "Custom"
+            icon_color: rgba(206, 206, 205, 255)
+            font_size: 36
+            on_release: app.root.current = "login"

@@ -1,0 +1,40 @@
+#:kivy 2.2.1
+<StepBox>:
+    orientation: 'horizontal'
+    size_hint: None, None  # Set to None to allow manual height adjustment
+    width: self.minimum_width
+    height: self.minimum_height
+    spacing: 10
+    MDBoxLayout:
+        size_hint: None, None
+        size: 26, 26
+        pos_hint: {'center_x': 0.45, 'center_y': .9}
+        padding: 12, 0, 12, 0
+        canvas:
+            Color:
+                rgb: rgba(248, 247, 246, 255)
+            Ellipse:
+                pos: self.pos
+                size: self.size
+        MDBoxLayout:
+            size_hint: None, None
+            width: self.minimum_width
+            height: self.minimum_height 
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            MDLabel:
+                text: '1'
+                color: rgba(36,36,36,255)
+                font_size: 18
+                font_name: 'RRoboto'
+    MDBoxLayout:
+        orientation: 'vertical'
+        size_hint: None, None
+        width: 300
+        height: self.minimum_height
+        MDLabel:
+            text: 'Rau muống rửa sạch lặt bớt lá ngắt khúc vừa ăn, bắc nước trụn rau cho thêm chút dầu ăn và bột nêm, nước sôi đem trụn vừa xanh với ra có thể cho qua thau nước đá rồi bớt để ráo, bắc chảo phi tỏi thơm cho tép vào rang cho bột nêm và tiêu chút tương ớt vào rang chín cho vào thau rau muống'
+            color: rgba(248, 247, 246, 255)
+            font_size: 18
+            font_name: 'RRoboto'
+            size_hint_y: None
+            height: self.texture_size[1]

@@ -1,0 +1,312 @@
+#:kivy 2.2.1
+#:import FileChooserBoxLayout libs.components.fileChooserBoxLayout.FileChooserBoxLayout
+
+<AddPage>:
+    md_bg_color: rgba(36,36,36,255)
+    
+    MDScrollView:
+        bar_width: 0
+        MDBoxLayout:
+            orientation: 'vertical'
+            size_hint_y: None  
+            height: self.minimum_height
+            padding: 10
+            FileChooserBoxLayout:
+                id: file_chooser_box
+                
+            MDBoxLayout:
+                size_hint_y: None  
+                height: self.minimum_height + 20
+                MDFloatLayout: 
+                    orientation: 'horizontal'
+                    size_hint: None, None
+                    size: 330, 60
+                    padding: 10
+                    spacing: 10
+                    md_bg_color: rgba(74, 74, 74, 255)
+                    radius: 10
+                    
+                    TextInput:
+                        id: food_name_input
+                        size_hint_x: 0.8
+                        hint_text: "Gõ vào tên món ăn"
+                        background_color: "white"
+                        pos_hint: {'center_x': 0.5, 'center_y': .5}
+                        background_color: 1, 1, 1, 0
+                        foreground_color: 1, 1, 1, 1
+            MDBoxLayout:
+                size_hint_y: None  # Set to None to allow manual height adjustment
+                height: self.minimum_height + 30
+                # md_bg_color: 'red'
+                MDFloatLayout: 
+                    orientation: 'horizontal'
+                    size_hint: None, None
+                    size: 330, 140
+                    # pos_hint: {'center_x': 0.48,'center_y': 0.96}
+                    padding: 10
+                    spacing: 10
+                    md_bg_color: rgba(74, 74, 74, 255)
+                    # md_bg_color: 'red'
+                    radius: 10
+                    
+                    TextInput:
+                        id: food_description_input
+                        size_hint_x: 0.9
+                        hint_text: "Hãy chia sẻ với mọi người về món này của bạn nhé. Ai hay điều gì đã truyền cảm hứng cho bạn nấu nó? Tại sao nó đặc biệt? Bạn thích thưởng thức nó theo cách nào?"
+                        background_color: "white"
+                        pos_hint: {'center_x': 0.5, 'center_y': .5}
+                        background_color: 1, 1, 1, 0
+                        foreground_color: 1, 1, 1, 1
+            MDBoxLayout:
+                size_hint_y: None  
+                height: self.minimum_height + 4
+                MDFloatLayout: 
+                    orientation: 'horizontal'
+                    size_hint: None, None
+                    size: 330, 40
+                    padding: 10
+                    spacing: 10
+                    md_bg_color: rgba(74, 74, 74, 255)
+                    radius: 10
+                    
+                    TextInput:
+                        id: food_nation_input
+                        size_hint_x: 0.9
+                        hint_text: "Thêm xuất xứ của món"
+                        background_color: "white"
+                        pos_hint: {'center_x': 0.5, 'center_y': .48}
+                        background_color: 1, 1, 1, 0
+                        foreground_color: 1, 1, 1, 1   
+            MDBoxLayout:
+                orientation: 'horizontal'
+                size_hint_y: None  
+                height: self.minimum_height + 50
+                MDLabel:
+                    text: "Khẩu phần"
+                    color: rgba(248,246,242,255)
+                    font_size: 20
+                    font_name: 'RRoboto'
+                    size_hint: None, None
+                    width: 170
+                    height: self.texture_size[1]
+                    pos_hint: {'center_y': .5}
+                MDFloatLayout: 
+                    orientation: 'horizontal'
+                    size_hint: None, None
+                    size: 160, 40
+                    padding: 10
+                    spacing: 10
+                    md_bg_color: rgba(74, 74, 74, 255)
+                    radius: 10
+                    pos_hint: {'center_y': .5}
+                    
+                    TextInput:
+                        id: serving_for_input
+                        size_hint_x: 0.9
+                        hint_text: "2 người"
+                        background_color: "white"
+                        pos_hint: {'center_x': 0.5, 'center_y': .48}
+                        background_color: 1, 1, 1, 0
+                        foreground_color: 1, 1, 1, 1   
+            MDBoxLayout:
+                orientation: 'horizontal'
+                size_hint_y: None  
+                height: self.minimum_height + 10
+                MDLabel:
+                    text: "Thời gian nấu"
+                    color: rgba(248,246,242,255)
+                    font_size: 20
+                    font_name: 'RRoboto'
+                    size_hint: None, None
+                    width: 170
+                    height: self.texture_size[1]
+                    pos_hint: {'center_y': .5}
+                MDFloatLayout: 
+                    orientation: 'horizontal'
+                    size_hint: None, None
+                    size: 160, 40
+                    padding: 10
+                    spacing: 10
+                    md_bg_color: rgba(74, 74, 74, 255)
+                    radius: 10
+                    pos_hint: {'center_y': .5}
+                    
+                    TextInput:
+                        id: food_time_input
+                        size_hint_x: 0.9
+                        hint_text: "1 tiếng 30 phút"
+                        background_color: "white"
+                        pos_hint: {'center_x': 0.5, 'center_y': .48}
+                        background_color: 1, 1, 1, 0
+                        foreground_color: 1, 1, 1, 1   
+            MDBoxLayout:
+                size_hint_y: None 
+                height: self.minimum_height + 60
+                canvas:
+                    Color:
+                        rgba: 1, 1, 1, 0.3  
+                    Rectangle:
+                        pos: self.x, self.y + 2  
+                        size: self.width, 8
+            MDBoxLayout:
+                orientation: 'vertical'
+                size_hint: None, None
+                width: 300
+                height: self.minimum_height + 30
+                MDLabel:
+                    text: 'Nguyên Liệu'
+                    color: rgba(248, 247, 246, 255)
+                    font_size: 20
+                    font_name: 'BRoboto'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+            MDBoxLayout:
+                id: ingredient_input_list
+                orientation: 'vertical'
+                size_hint_y: None  
+                height: self.minimum_height + 10
+                spacing: 20
+                    
+            MDBoxLayout:
+                size_hint: None, None
+                width: self.minimum_width
+                height: self.minimum_height + 30
+                MDFloatLayout:
+                    size_hint: None, None
+                    size: 320, 80
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+                        size_hint_y: None
+                        height: self.minimum_height
+                        pos_hint: {'center_x': .5, 'center_y': .5}
+                        padding: 60, 0, 0, 0
+                        # md_bg_color: 'red'
+                        MDIconButton:
+                            icon: 'plus'
+                            theme_text_color: "Custom"
+                            icon_color: rgba(255, 255, 255, 255)
+                            font_size: 36
+                        Label:
+                            text: 'Nguyên liệu'
+                            color: rgba(248, 247, 246, 255)
+                            font_size: 20
+                            font_name: 'BRoboto'
+                            size_hint: None, None
+                            width: self.texture_size[0]
+                            height: self.texture_size[1]
+                            pos_hint: {'center_y': .5}
+                            multiline: False
+                    Button:
+                        size_hint: None, None
+                        size: 320, 80   
+                        background_color: rgba(255, 255, 255, 0)
+                        pos_hint: {'center_x': .5, 'center_y': .5}
+                        on_release: root.add_ingredient_input()
+                    
+            # Cách làm
+            MDBoxLayout:
+                size_hint_y: None 
+                height: self.minimum_height
+                canvas:
+                    Color:
+                        rgba: 1, 1, 1, 0.3  
+                    Rectangle:
+                        pos: self.x, self.y + 2  
+                        size: self.width, 8
+            MDBoxLayout:
+                orientation: 'vertical'
+                size_hint: None, None
+                width: 300
+                height: self.minimum_height + 30
+                MDLabel:
+                    text: 'Cách làm'
+                    color: rgba(248, 247, 246, 255)
+                    font_size: 20
+                    font_name: 'BRoboto'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+            MDBoxLayout: 
+                id: making_input_list
+                orientation: 'vertical'
+                size_hint_y: None  
+                height: self.minimum_height + 10
+                
+            MDBoxLayout:
+                size_hint: None, None
+                width: self.minimum_width
+                height: self.minimum_height + 30
+                MDFloatLayout:
+                    size_hint: None, None
+                    size: 320, 80
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+                        size_hint_y: None
+                        height: self.minimum_height
+                        pos_hint: {'center_x': .5, 'center_y': .5}
+                        padding: 60, 0, 0, 0
+                        # md_bg_color: 'red'
+                        MDIconButton:
+                            icon: 'plus'
+                            theme_text_color: "Custom"
+                            icon_color: rgba(255, 255, 255, 255)
+                            font_size: 36
+                        Label:
+                            text: 'Thêm bước'
+                            color: rgba(248, 247, 246, 255)
+                            font_size: 20
+                            font_name: 'BRoboto'
+                            size_hint: None, None
+                            width: self.texture_size[0]
+                            height: self.texture_size[1]
+                            pos_hint: {'center_y': .5}
+                            multiline: False
+                    Button:
+                        size_hint: None, None
+                        size: 320, 80   
+                        background_color: rgba(255, 255, 255, 0)
+                        pos_hint: {'center_x': .5, 'center_y': .5}
+                        on_release: root.add_making_input()   
+                    
+    MDFloatLayout: 
+        orientation: 'horizontal'
+        size_hint_y: .08
+        size_hint_x: 1.1
+        pos_hint: {'center_x': 0.48,'center_y': 0.96}
+        spacing: 10
+        padding: 10
+        md_bg_color: rgba(55, 55, 55, 255)
+        
+        MDIconButton:
+            pos_hint: {'center_x': .12, 'center_y': 0.5}
+            icon: "arrow-left"
+            theme_text_color: "Custom"
+            icon_color: rgba(255, 255, 255, 255)
+            font_size: 36
+            on_release: app.root.current = "homepage"
+        MDBoxLayout:
+            size_hint: None, None 
+            width: self.minimum_width
+            height: self.minimum_height
+            pos_hint: {'center_x': .82, 'center_y': 0.5}
+            MDFloatLayout:
+                size_hint: None, None
+                size: 100, 36
+                md_bg_color: rgba(226,125,25,255)
+                padding: 10
+                radius: 8
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                Button:
+                    size_hint: None, None
+                    size: 90, 30
+                    pos_hint: {'center_x': .5, 'center_y': .5}
+                    background_color: rgba(226,125,25,0)
+                    on_release: root.submit_food()
+                Label:
+                    text: 'Lên Sóng'
+                    font_size: 18
+                    color: rgba(36,36,36,255)
+                    font_name: "RRoboto"
+                    width: self.texture_size[0] + 20
+                    pos_hint: {'center_x': .5, 'center_y': 0.5}
+    
+

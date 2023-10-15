@@ -1,0 +1,25 @@
+<FileChooserBoxLayout>:
+    orientation: 'vertical'
+    size_hint: None, None
+    width: self.minimum_width
+    height: self.minimum_height + 64
+    md_bg_color: 'red'
+        
+    MDFloatLayout:
+        size_hint: None, None
+        size: 336, 240
+        md_bg_color: rgba(74, 74, 74, 255)
+        Button:
+            size_hint: None, None
+            size: 340, 240
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            on_press: root.file_chooser()
+        Image:
+            id: add_food_image
+            source: 'assets/image/icon_app/upload_image.png'
+            size_hint: None, None
+            size: 100, 100
+            pos_hint: {'center_x': .49, 'center_y': .5}
+            allow_stretch: True
+            keep_ratio: False
+   

@@ -1,0 +1,61 @@
+#:kivy 2.2.1
+
+<FoodSearch>:
+    size_hint: None, None 
+    width: 320
+    height: self.minimum_height
+    md_bg_color: rgba(46, 46, 46, 255)
+    padding: 20, 14, 20, 14
+    radius: 10
+    MDBoxLayout:
+        orientation: "horizontal"
+        size_hint_y: None
+        height: self.minimum_height
+        spacing: 20
+        MDBoxLayout:
+            orientation: "vertical"
+            size_hint_y: None
+            height: self.minimum_height
+            spacing: 20
+            MDLabel:
+                text: root.foodName
+                color: rgba(248,246,242,255)
+                font_size: 18
+                font_name: 'MRoboto'
+                size_hint: None, None
+                width: 140
+                height: self.texture_size[1]
+            MDBoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: 10
+                Image:
+                    source: root.chefAvatar
+                    size_hint: None, None
+                    size: 20, 20
+                MDLabel:
+                    text: root.chefFullname
+                    color: rgba(248,246,242,255)
+                    font_size: 16
+                    font_name: 'LRoboto'
+                    # size_hint: None, None
+                    # width: 140
+                    # height: self.texture_size[1]
+            MDLabel:
+                text: root.recipe
+                color: rgba(248,246,242,255)
+                font_size: 16
+                font_name: 'LRoboto'
+                size_hint: None, None
+                width: 130
+                height: self.texture_size[1]
+        MDBoxLayout:
+            orientation: 'vertical'
+            size_hint_y: None
+            height: self.minimum_height
+            Image:
+                source: root.foodImage
+                size_hint: None, None
+                size: 130, 180
+                radius: 10

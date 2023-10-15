@@ -1,26 +1,442 @@
 #:kivy 2.2.1
-#: import Window kivy.core.window.Window
-
+#: import BottomNav libs.components.bottomNav
 <DetailFood>:
     md_bg_color: rgba(36,36,36,255)
     MDScrollView:
         bar_width: 0
-		MDFloatLayout:
+		MDBoxLayout:
 			orientation: 'vertical'
-			size_hint_y: 1.5
+			size_hint_y: None  
+            height: self.minimum_height
             MDBoxLayout:
-                size_hint_x: 1
+                size_hint_y: None  
+                height: self.minimum_height
                 Image:
-                    source: "assets/image/food/rau_muong_xao.png"
-                    size_hint_x: 1 
-                    pos_hint: {'center_y': .84}
+                    source: root.foodImage
+                    size_hint: None, None
+                    size: 356, 218
+                    allow_stretch: True
+                    keep_ratio: False
+            MDBoxLayout: 
+                orientation: 'vertical'
+                size_hint_y: None  
+                height: self.minimum_height
+                padding: 10, 0, 10, 0
+                MDBoxLayout:
+                    size_hint_y: None  
+                    height: self.minimum_height + 30
+                    
+                    MDLabel:
+                        text: root.foodName
+                        color: rgba(247,246,222,255)
+                        font_size: 25
+                        font_name: 'MRoboto'
+                        size_hint_y: .1
+                        pos_hint: {'center_x': 0.6}
+                MDBoxLayout:
+                    orientation: 'horizontal'
+                    size_hint: None, None  
+                    width: self.minimum_width
+                    height: self.minimum_height + 34
+                    spacing: 10
+                    Image:
+                        source: root.chefAvatar
+                        size_hint: None, None
+                        size: 50, 50
+                    MDBoxLayout:
+                        orientation: 'vertical'
+                        size_hint: None, None 
+                        width: self.minimum_width
+                        height: self.minimum_height + 50
+                        MDLabel:
+                            text: root.chefFullname
+                            color: rgba(250,244,224,255)
+                            font_size: 16
+                            font_name: 'RRoboto'
+                            size_hint_x: None
+                            width: 150
+                        MDLabel:
+                            text: '@' + root.chefPycookId
+                            color: rgba(250,244,224,255)
+                            font_size: 14
+                            font_name: 'RRoboto'
+                            size_hint_x: None
+                            width: 150
+                MDBoxLayout:
+                    size_hint: None, None 
+                    width: self.minimum_width
+                    height: self.minimum_height + 20
+                    orientation: 'vertical'
+                    spacing: 10
+                    MDLabel:
+                        text: 'Món này có thể ăn với cơm hoặc ăn chơi với bánh phồng tôm làm mồi nhắm lai rai.'
+                        color: rgba(250,244,224,255)
+                        font_size: 17
+                        font_name: 'MRoboto'
+                        size_hint: None, None
+                        width: 320
+                        height: self.texture_size[1]
+                    MDLabel:
+                        text: 'Xuất xứ: Việt Nam'
+                        color: rgba(250,244,224,255)
+                        font_size: 16
+                        font_name: 'RRoboto'
+                        size_hint: None, None
+                        width: 320
+                        height: self.texture_size[1]
+                            
+                MDBoxLayout:
+                    size_hint_y: None 
+                    height: self.minimum_height + 36
+                    MDBoxLayout:
+                        size_hint: None, None
+                        size: 336, 40
+                        md_bg_color: rgba(227,125,25,255)
+                        padding: 112
+                        radius: 10
+                        pos_hint: {'center_x': .5}
+                        MDIcon:
+                            icon: "bookmark-outline"
+                            pos_hint: {'center_x': .55, 'center_y': 0.5}
+                            color: rgba(38,37,35,255)
+                            font_size: 24
+                        Label:
+                            id: label
+                            text: 'Lưu món'
+                            font_size: 16
+                            color: rgba(38,37,35,255)
+                            font_name: "MRoboto"
+                            width: self.texture_size[0] + 20
+                            pos_hint: {'center_x': .5, 'center_y': 0.5}
+                MDBoxLayout:
+                    size_hint_y: None 
+                    height: self.minimum_height + 15
+                    canvas:
+                        Color:
+                            rgba: 1, 1, 1, 0.3  
+                        Rectangle:
+                            pos: self.x, self.y + 2  
+                            size: self.width, 2  
+                MDBoxLayout:
+                    orientation: 'horizontal'
+                    size_hint: None, None
+                    width: self.minimum_width
+                    height: self.minimum_height + 40
+                    pos_hint: {'center_x': .5}
+                    spacing: 20
+                    MDIcon:
+                        icon: "clock-time-five-outline"
+                        color: rgba(247,246,242,255)
+                        pos_hint: {'center_y': .5}
+                        font_size: 20
+                    Label:
+                        text: '20p'
+                        color: rgba(247,246,242,255)
+                        font_size: 18
+                        font_name: 'MRoboto'
+                        pos_hint: {'center_y': .5}
+                        size_hint: None, None
+                        width: self.texture_size[0]
+                        height: self.texture_size[1]
+                        multiline: False
+                    
 
-            MDLabel:
-                text: "Rau muong luoc"
-                color: rgba(250,244,224,255)
-                font_size: 25
-                pos_hint: {'center_x': 0.52, 'center_y': 0.652}
-            
+                MDBoxLayout:
+                    size_hint_y: None 
+                    height: self.minimum_height + 40
+                    MDLabel:
+                        text: 'Nguyên Liệu'
+                        color: rgba(247,246,242,255)
+                        font_size: 22
+                        font_name: 'MRoboto'
+                MDBoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: None
+                    height: self.minimum_height
+                    spacing: 10
+                    MDIcon:
+                        icon: "account-outline"
+                        color: rgba(247,246,242,255)
+                        font_size: 20
+                        pos_hint: {'center_y': .5}
+                    MDLabel:
+                        text: '4 người'
+                        color: rgba(247,246,242,255)
+                        pos_hint: {'center_y': .5}
+                        font_size: 16
+                        font_name: 'RRoboto'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                MDBoxLayout: 
+                    id: recipes
+                    orientation: 'vertical'
+                    size_hint_y: None 
+                    height: self.minimum_height + 20
+                    spacing: 14
+                MDBoxLayout:
+                    size_hint_y: None 
+                    height: self.minimum_height + 50
+                    canvas:
+                        Color:
+                            rgba: 1, 1, 1, 0.3  # Set the color to white with 30% opacity
+                        Rectangle:
+                            pos: self.x, self.y + 2  # Offset the y-position to create a small gap
+                            size: self.width, 2  # Set the size of the line
+
+                MDBoxLayout: 
+                    size_hint_y: None 
+                    height: self.minimum_height + 10
+                    MDBoxLayout:
+                        size_hint_y: None
+                        height: self.minimum_height + 60
+                        MDLabel:
+                            text: 'Cách làm'
+                            color: rgba(247,246,242,255)
+                            font_size: 24
+                            font_name: 'MRoboto'
+                MDBoxLayout:
+                    id: makings
+                    orientation: 'vertical'
+                    size_hint_y: None 
+                    height: self.minimum_height + 10
+                    spacing: 20
+                    
+                    
+                MDBoxLayout:
+                    size_hint_y: None 
+                    height: self.minimum_height + 50
+                    canvas:
+                        Color:
+                            rgba: 1, 1, 1, 0.3  
+                        Rectangle:
+                            pos: self.x, self.y + 2  
+                            size: self.width, 2    
+
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    size_hint: None, None  
+                    width: 300
+                    height: self.minimum_height + 20
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                    spacing: 10
+                    Image:
+                        source: root.chefAvatar
+                        size_hint: None, None
+                        size: 100, 100
+                        pos_hint: {'center_x': 0.5}
+                    MDLabel:
+                        text: 'Lên sóng bởi'
+                        color: rgba(248, 247, 246, 255)
+                        font_size: 18
+                        font_name: 'RRoboto'
+                        size_hint_y: None  
+                        height: self.texture_size[1]  
+                        halign: 'center'  
+                        pos_hint: {'center_x': 0.5}
+                    MDLabel:
+                        text: root.chefFullname
+                        color: rgba(248, 247, 246, 255)
+                        font_size: 18
+                        font_name: 'BRoboto'
+                        size_hint_y: None  
+                        height: self.texture_size[1]  
+                        halign: 'center'  
+                        pos_hint: {'center_x': 0.5}
+                    MDLabel:
+                        text: root.createdDate
+                        color: rgba(248, 247, 246, 255)
+                        font_size: 14
+                        font_name: 'RRoboto'
+                        size_hint_y: None  
+                        height: self.texture_size[1]  
+                        halign: 'center'  
+                        pos_hint: {'center_x': 0.5}
+                MDBoxLayout:
+                    size_hint_y: None 
+                    height: self.minimum_height + 36
+                    
+                    MDBoxLayout:
+                        size_hint: None, None
+                        size: 336, 40
+                        md_bg_color: 
+                        padding: 112
+                        radius: 10
+                        pos_hint: {'center_x': .5}
+                        md_bg_color: rgba(248,246,242,255)
+                        Label:
+                            id: label
+                            text: 'Kết bạn bếp'
+                            font_size: 16
+                            color: rgba(36,36,36,255)
+                            font_name: "MRoboto"
+                            width: self.texture_size[0] + 20
+                            pos_hint: {'center_x': .5, 'center_y': 0.5}
+
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: self.minimum_height + 20
+                    MDFloatLayout:
+                        size_hint: None, None
+                        size: 302, 50
+                        MDFloatLayout:
+                            size_hint: None, None
+                            size: 80, 50
+                            pos_hint: {"center_x": 0.2, "center_y": 0.9}
+                            on_touch_down: root.on_like_click()
+                            Image:
+                                source: "assets/image/icon_app/smile.png"
+                                size_hint: .6, .6
+                                pos_hint: {"center_x": 0.1, "center_y": 0.1}
+                            MDLabel:
+                                text: root.deliciousTotal
+                                color: rgba(248, 247, 246, 255)
+                                font_size: 14
+                                font_name: 'RRoboto'
+                                pos_hint: {"center_x": 0.68, "center_y": 0.12}
+                        Image:
+                            source: "assets/image/icon_app/heart.png"
+                            size_hint: .6, .6
+                            pos_hint: {"center_x": 0.27, "center_y": 0.5}
+                        MDLabel:
+                            text: root.heartTotal
+                            color: rgba(248, 247, 246, 255)
+                            font_size: 14
+                            font_name: 'RRoboto'
+                            pos_hint: {"center_x": 0.79, "center_y": 0.5}
+                        Image:
+                            source: "assets/image/icon_app/hank.png"
+                            size_hint: .6, .6  
+                            pos_hint: {"center_x": 0.44, "center_y": 0.5}
+                        MDLabel:
+                            text: root.likeTotal
+                            color: rgba(248, 247, 246, 255)
+                            font_size: 14
+                            font_name: 'RRoboto'
+                            pos_hint: {"center_x": 0.96, "center_y": 0.5}
+                MDBoxLayout:
+                    size_hint_y: None 
+                    height: self.minimum_height + 30
+                    canvas:
+                        Color:
+                            rgba: 1, 1, 1, 0.3  
+                        Rectangle:
+                            pos: self.x, self.y + 2  
+                            size: self.width, 2 
+                MDBoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: None 
+                    height: self.minimum_height + 40
+                    spacing: 10
+                    MDIcon:
+                        icon: 'chat'
+                        theme_text_color: "Custom"
+                        color: rgba(255, 255, 255, 255)
+                        pos_hint: {'center_y': 0.5}
+                    MDLabel:
+                        text: 'Bình luận'
+                        color: rgba(248, 247, 246, 255)
+                        font_size: 22
+                        font_name: 'BRoboto'
+                        size_hint_y: None  
+                        height: self.texture_size[1]  
+                        pos_hint: {'center_y': 0.5}
+                MDBoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: None
+                    height: self.minimum_height + 10
+                    spacing: 10
+                    Image:
+                        source: "assets/image/avatar/mai_ngo.png"
+                        size_hint: None, None
+                        size: 30, 30
+                        pos_hint: {'center_x': 0.5}
+                        # pos_hint: {"center_x": 0.1, "center_y": 0.5}
+                    MDFloatLayout:
+                        Image:
+                            source: "assets/image/search.png"
+                            size_hint: None, None
+                            size: 500, 40
+                            pos_hint: {'center_x': 0.58, 'center_y': .5}
+                        TextInput:
+                            id: comment_input
+                            size_hint_x: 0.8
+                            hint_text: "Thêm bình luận"
+                            background_color: "white"
+                            pos_hint: {'center_x': 0.4, 'center_y': .35}
+                            background_color: 1, 1, 1, 0
+                MDBoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: None
+                    height: self.minimum_height
+                    padding: 250, 0, 0, 0
+                    MDIconButton:
+                        on_release: root.send_comment()
+                        MDBoxLayout:
+                            size_hint: None, None
+                            size: 60, 30
+                            md_bg_color: rgba(227,125,25,255)
+                            padding: 10
+                            Label:
+                                id: label
+                                text: 'Gửi'
+                                font_size: 16
+                                color: rgba(38,37,35,255)
+                                font_name: "MRoboto"
+                                width: self.texture_size[0] + 20
+                                pos_hint: {'center_x': .5, 'center_y': 0.5}
+                MDBoxLayout:
+                    id: comments
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: self.minimum_height + 10
+                    spacing: 10
+                    
+
+                MDBoxLayout:
+                    size_hint_y: None 
+                    height: self.minimum_height + 30
+                    canvas:
+                        Color:
+                            rgba: 1, 1, 1, 0.3  
+                        Rectangle:
+                            pos: self.x, self.y + 2  
+                            size: self.width, 2 
+                MDBoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: None 
+                    height: self.minimum_height + 40
+                    spacing: 10
+                    MDLabel:
+                        text: 'Món mới của Bòn Bon'
+                        color: rgba(248, 247, 246, 255)
+                        font_size: 22
+                        font_name: 'BRoboto'
+                        size_hint_y: None  
+                        height: self.texture_size[1]  
+                        pos_hint: {'center_y': 0.5}
+
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    size_hint: None, None 
+                    width: self.minimum_width
+                    height: self.minimum_height
+                    pos_hint: {'center_x': 0.5}
+                    # spacing: 20
+                    # md_bg_color: 'red'
+                    MDGridLayout:
+                        id: lastest_foods
+                        cols: 2
+                        spacing: 20
+                        size_hint: None, None 
+                        width: self.minimum_width
+                        height: self.minimum_height
+                MDBoxLayout:
+                    size_hint: None, None 
+                    width: self.minimum_width
+                    height: 80
+                      
+
     MDIconButton:
         pos_hint: {'center_x': .1, 'center_y': 0.96}
         icon: "arrow-left"
@@ -28,4 +444,5 @@
         icon_color: rgba(255, 255, 255, 255)
         font_size: 36
         on_release: app.root.current = "homepage"
+    BottomNav:
        

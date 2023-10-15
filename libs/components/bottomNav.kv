@@ -1,0 +1,48 @@
+#:kivy 2.2.1
+
+<BottomNav>:
+    id: bottom_navigation
+    md_bg_color: rgba(60,60,60,255)
+    size_hint_y: .08
+    MDIconButton:
+        id: add_item
+        pos_hint: {'center_x': .1, 'center_y': 0.5}
+        icon: "home"
+        theme_text_color: "Custom"
+        icon_color: rgba(206, 206, 205, 255)
+        font_size: 36
+        on_release: app.root.current = "homepage"
+
+    MDIconButton:
+        id: add_item
+        pos_hint: {'center_x': .3, 'center_y': 0.5}
+        icon: "magnify"
+        theme_text_color: "Custom"
+        icon_color: rgba(206, 206, 205, 255)
+        font_size: 36
+        on_release: app.root.current = "searchpage"
+
+    MDIconButton:
+        id: add_item
+        pos_hint: {'center_x': .5, 'center_y': 0.5}
+        icon: "plus-box"
+        theme_text_color: "Custom"
+        icon_color: rgba(206, 206, 205, 255)
+        font_size: 36
+        on_release: app.root.current = "addpage"
+    MDIconButton:
+        id: add_item
+        pos_hint: {'center_x': .7, 'center_y': 0.5}
+        icon: "email-outline"
+        theme_text_color: "Custom"
+        icon_color: rgba(206, 206, 205, 255)
+        font_size: 36
+        on_release: app.root.current = "login"
+    MDIconButton:
+        id: account_item
+        pos_hint: {'center_x': .9, 'center_y': 0.5}
+        icon: "account-circle-outline"
+        theme_text_color: "Custom"
+        icon_color: rgba(206, 206, 205, 255)
+        font_size: 36
+        on_release: root.on_click_account()  

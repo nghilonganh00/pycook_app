@@ -1,0 +1,15 @@
+#:kivy 2.2.1
+<Recipe>:
+    size_hint_y: None
+    height: self.minimum_height
+    Label:
+        text: root.ingredientName
+        color: rgba(247,246,242,255)
+        font_size: 17
+        font_name: 'RRoboto'
+        size_hint: None, None
+        width: self.texture_size[0]
+        height: self.texture_size[1]
+        multiline: False
+        halign: 'left'  
+        valign: 'middle'

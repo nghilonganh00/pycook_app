@@ -17,12 +17,10 @@ class Login(MDScreen):
             request_data = {"username": username, "password": password}
             response = requests.post(api_url, json=request_data)
             
-            print(request_data)
             if response.status_code == 200:
-                self.parent.current = "homepage"
+                self.parent.current = "account"
                 app.is_logged_in = True
                 app.user = response.json()
-                print(response.json())
             else:
                 print("Loi dang nhap")
         except Exception as e:

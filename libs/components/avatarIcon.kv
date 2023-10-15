@@ -1,0 +1,12 @@
+#:kivy 2.2.1
+
+<AvatarIcon>:
+    size_hint: None, None
+    size: 30, 30
+    pos_hint: {'center_x': .9, 'center_y': 0.5}
+    on_touch_down: app.root.current = 'account'
+    md_bg_color: 'red'
+    Image:
+        source: 'assets/image/avatar/mai_ngo.png'
+        size_hint: None, None
+        size: 30, 30

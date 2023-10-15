@@ -7,11 +7,14 @@ import requests
 from libs.components.ingredientCard import IngredientCard
 from libs.components.hashtag import Hashtag
 from libs.components.foodCard import FoodCard
+from libs.components.avatarIcon import AvatarIcon
 
 class HomePage(MDScreen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.first_time = True
+        self.foods = []
+        self.ingredient = []
 
     def on_enter(self):
         app = App.get_running_app()
@@ -26,15 +29,15 @@ class HomePage(MDScreen):
                 response = requests.get(api_url)
                 
                 if response.status_code == 200:
-                    ingredients = response.json()
+                    self.ingredients = response.json()
                 else:
                     print("Loi dang nhap")
             except Exception as e:
                 print(e)
             
             ingredient_list_first = self.ids.ingredient_list_first
-            for ingredient in ingredients:
-                ingredient_card = IngredientCard(ingredientName = ingredient['ingredientName'], ingredientImage=ingredient['ingredientImage'])
+            for ingredient in self.ingredients:
+                ingredient_card = IngredientCard(ingredientName = ingredient['ingredientName'], ingredientImage=ingredient['ingredientImage'], ingredientId=ingredient['ingredientId'])
                 ingredient_list_first.add_widget(ingredient_card)
             
             #-------- Get Hashtag list from server----------
@@ -65,8 +68,20 @@ class HomePage(MDScreen):
                 print(e)
 
             food_by_hashtag = self.ids.food_by_hashtag
+            food_by_hashtag.clear_widgets()
             for food in foods:
-                food_card = FoodCard(foodName=food['foodName'], foodImage=food['foodImage'], chefAvatar=food['chef']['avatar'], chefFullname=food['chef']['fullname'], chefPycookID=food['chef']['pycookID'], heartTotal=food['heartTotal'], likeTotal=food['likeTotal'], deliciousTotal=food['deliciousTotal'], createdDate=food['created_at'])
+                food_card = FoodCard(
+                    foodId=food['foodId'],
+                    foodName=food['foodName'], 
+                    foodImage=food['foodImage'], 
+                    chefAvatar=food['chef']['avatar'], 
+                    chefFullname=food['chef']['fullname'], 
+                    chefPycookID=food['chef']['pycookID'], 
+                    heartTotal=food['heartTotal'], 
+                    likeTotal=food['likeTotal'], 
+                    deliciousTotal=food['deliciousTotal'], 
+                    createdDate=food['created_at']
+                )
                 food_by_hashtag.add_widget(food_card)
 
 
@@ -75,15 +90,13 @@ class HomePage(MDScreen):
             bottom_navigation = self.ids.bottom_navigation
             bottom_navigation.remove_widget(self.ids.account_item)
 
-            icon_button = MDIconButton(
-                id='account',
-                pos_hint={'center_x': .9, 'center_y': 0.5},
-                icon='facebook',
-                theme_text_color='Custom',
-                font_size=36
-            )
-            avatar = Image(
-                source = app.user['avatar']
-            )
-            icon_button.add_widget(avatar)
-            bottom_navigation.add_widget(icon_button)
+            avatarIcon = AvatarIcon(avatar=app.user['avatar'])
+            bottom_navigation.add_widget(avatarIcon)
+
+    def on_click_account(self):
+        app = App.get_running_app()
+        if app.is_logged_in:
+            print(app.is_logged_in)
+            self.manager.current = 'account'
+        else:
+            self.manager.current = 'login'

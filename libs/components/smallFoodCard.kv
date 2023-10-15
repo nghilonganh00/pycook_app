@@ -1,0 +1,71 @@
+#:kivy 2.2.1
+
+<SmallFoodCard>:
+    orientation: 'vertical'
+    size_hint: None, None
+    width: 170
+    height: 230
+    md_bg_color: rgba(46, 46, 46, 255)
+    canvas.before:
+        Color:
+            rgba: rgba(119,118,114,255) 
+        Line:
+            width: .6
+            rectangle: self.x, self.y, self.width, self.height
+    Image:
+        source: root.foodImage
+        size_hint: None, None
+        size: 170, 130
+        allow_stretch: True
+        keep_ratio: False
+    MDBoxLayout:
+        orientation: 'vertical'
+        size_hint_y: None
+        height: self.minimum_height
+        padding: 10, 0, 10, 0
+        MDLabel:
+            text: root.foodName
+            font_size: 18
+            font_name: 'MRoboto'
+            color: rgba(255, 255, 255, 255)
+            size_hint_y: None
+            height: self.texture_size[1] + 10
+        MDFloatLayout:
+            size_hint: None, None
+            size: 170, 50
+            pos_hint: {'center_y': 0.2}
+            Image:
+                source: "assets/image/icon_app/smile.png"
+                size_hint: None, None
+                size: 40, 40
+                pos_hint: {"center_x": 0.1, "center_y": 0.3}
+            MDLabel:
+                text: root.deliciousTotal
+                color: rgba(248, 247, 246, 255)
+                font_size: 14
+                font_name: 'RRoboto'
+                pos_hint: {"center_x": 0.62, "center_y": 0.3}
+            Image:
+                source: "assets/image/icon_app/heart.png"
+                size_hint: None, None
+                size: 40, 40
+                pos_hint: {"center_x": 0.37, "center_y": 0.3}
+            MDLabel:
+                text: root.heartTotal
+                color: rgba(248, 247, 246, 255)
+                font_size: 14
+                font_name: 'RRoboto'
+                pos_hint: {"center_x": 0.9, "center_y": 0.3}
+            Image:
+                source: "assets/image/icon_app/hank.png"
+                size_hint: None, None
+                size: 40, 40
+                pos_hint: {"center_x": 0.64, "center_y": 0.3}
+            MDLabel:
+                text: root.likeTotal
+                color: rgba(248, 247, 246, 255)
+                font_size: 14
+                font_name: 'RRoboto'
+                pos_hint: {"center_x": 1.18, "center_y": 0.3}
+        
+

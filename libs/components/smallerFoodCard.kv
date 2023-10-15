@@ -1,0 +1,43 @@
+#: kivy 2.2.1
+
+<SmallerFoodCard>:
+    orientation: 'vertical'
+    size_hint: None, None 
+    width: self.minimum_width
+    height: self.minimum_height
+    spacing: 8
+
+    MDFloatLayout:
+        size_hint: None, None 
+        width: 150
+        height: 160
+        MDBoxLayout:
+            orientation: 'vertical'
+            size_hint: None, None 
+            width: 150
+            height: 160
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            spacing: 8
+            Image:
+                source: root.foodImage
+                size_hint: None, None
+                width: 150
+                height: 130
+                radius: 10
+                allow_stretch: True
+                keep_ratio: False
+            MDLabel:
+                text: root.foodName
+                color: rgba(248, 247, 246, 255)
+                bold: True
+                font_size: 16
+                font_name: 'MRoboto'
+                size_hint_y: None  
+                height: self.texture_size[1]  
+        Button:
+            size_hint: None, None
+            size: 150, 160
+            background_color: rgba(255, 255, 255, 0)
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            on_release: root.on_click_lastest_food()
+    

@@ -22,4 +22,11 @@ def format_time_difference(createdDate):
     elif seconds != 0:
         return f'cach day {seconds} giay'
 
+def conver_date_fotmat(createdDate):
+    time_format = "%a, %d %b %Y %H:%M:%S GMT"
+    time_object = datetime.strptime(createdDate, time_format)
+    formatted_date = time_object.strftime("%d tháng %m, %Y")
+
+    return formatted_date
+
 

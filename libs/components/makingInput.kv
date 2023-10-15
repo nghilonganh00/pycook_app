@@ -1,0 +1,53 @@
+#:kivy 2.2.1 
+
+<MakingInput>:
+    orientation: 'horizontal'
+    size_hint_y: None  
+    height: self.minimum_height + 10
+    spacing: 10
+    MDBoxLayout:
+        size_hint: None, None
+        size: 26, 26
+        pos_hint: {'center_x': 0.45, 'center_y': .84}
+        padding: 12, 0, 12, 0
+        canvas:
+            Color:
+                rgb: rgba(248, 247, 246, 255)
+            Ellipse:
+                pos: self.pos
+                size: self.size
+        MDBoxLayout:
+            size_hint: None, None
+            width: self.minimum_width
+            height: self.minimum_height 
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            MDLabel:
+                text: root.makingId
+                color: rgba(36,36,36,255)
+                font_size: 18
+                font_name: 'RRoboto'
+    MDBoxLayout:
+        orientation: 'vertical'
+        size_hint_y: None
+        height: self.minimum_height
+        spacing: 8
+        MDBoxLayout:
+            size_hint_y: None  
+            height: self.minimum_height + 4
+            MDFloatLayout: 
+                orientation: 'horizontal'
+                size_hint: None, None
+                size: 300, 200
+                padding: 10
+                spacing: 10
+                md_bg_color: rgba(74, 74, 74, 255)
+                radius: 10
+                pos_hint: {'center_y': .5}
+                TextInput:
+                    id: making_input
+                    size_hint_x: 0.9
+                    hint_text: "Mô tả"
+                    background_color: "white"
+                    pos_hint: {'center_x': 0.5, 'center_y': .48}
+                    background_color: 1, 1, 1, 0
+                    foreground_color: 1, 1, 1, 1 

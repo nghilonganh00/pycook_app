@@ -3,7 +3,7 @@
 <FoodCard>:
     orientation: "vertical"
     size_hint: None, None
-    size: 302, 270
+    size: 308, 270
     canvas.before:
         Color:
             rgba: rgba(119,118,114,255) 
@@ -12,13 +12,14 @@
             rectangle: self.x, self.y, self.width, self.height
     MDFloatLayout:
         size_hint: None, None
-        size: 300, 220
+        size: 308, 218
         Image: 
             source: root.foodImage
             size_hint: None, None
-            size: 340, 230
+            size: 308, 218
             pos_hint: {"center_x": .5, "center_y": .5}
-            radius: 10
+            allow_stretch: True
+            keep_ratio: False
         MDFloatLayout:
             size_hint: None, None
             size:  340, 230
@@ -54,9 +55,15 @@
             bold: True
             color: rgba(255,255,255,255)
             pos_hint: {"center_x": .32, "center_y": 0.14}
+        Button:
+            size_hint: None, None
+            size: 308, 218
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            background_color: rgba(255, 255, 255, 0)
+            on_release: root.on_click_food()
     MDFloatLayout:
         size_hint: None, None
-        size: 302, 50
+        size: 308, 50
         orientation: "horizontal"
         md_bg_color: rgba(46,46,46,255)
         Image:
@@ -95,4 +102,5 @@
             md_bg_color: rgba(118,118,118,255)
             pos_hint: {"center_x": .87, "center_y": 0.5} 
             radius: 10
+       
                 
