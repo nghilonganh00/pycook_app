@@ -13,7 +13,7 @@ class Account(MDScreen):
     def on_enter(self):
         app = App.get_running_app()
         if app.user:
-            self.fullname = app.user['fullname']
+            self.fullname = app.user.get('fullname', '')
             self.avatar = app.user['avatar']
             self.pycookID = app.user['pycookID']
 

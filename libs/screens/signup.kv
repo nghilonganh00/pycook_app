@@ -1,5 +1,5 @@
 #:kivy 2.2.1
-<Login>:
+<Signup>:
     MDFloatLayout:
         md_bg_color: rgba(15,15,15,255)
         MDIconButton:
@@ -10,7 +10,7 @@
             text_color: rgba(255, 255, 255, 255)
             on_release: app.root.current = "homepage"
         MDLabel:
-            text: "Chào mừng đến"
+            text: "Đăng ký tài khoản"
             font_size: 22
             color: rgba(255, 255, 255, 255)
             pos_hint: {"center_y": 0.84}
@@ -50,15 +50,8 @@
             on_text_validate: app.on_text_validate()
 
         Button:
-            text: "Đăng nhập"
+            text: "Signup"
             color: rgba(255, 255, 255, 255)
             pos_hint:  {"center_x": 0.5, "center_y": 0.30}
             size_hint: .7, .08
-            on_release: root.login()
-
-        Button:
-            text: "Đăng kí tài khoản"
-            color: rgba(255, 255, 255, 255)
-            pos_hint:  {"center_x": 0.5, "center_y": 0.20}
-            size_hint: .7, .08
-            on_release: app.root.current = 'signup'
+            on_release: root.signup()
