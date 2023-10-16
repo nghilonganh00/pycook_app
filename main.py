@@ -22,7 +22,7 @@ kv = """
 
 class PyCook(MDApp):
     is_logged_in = False
-    user = {'userId': 1}
+    user = {}
     def build(self):
         self.load_all_kv_files()
         self.manager = ScreenManager(transition = NoTransition())

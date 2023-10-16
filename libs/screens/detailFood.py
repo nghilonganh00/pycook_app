@@ -15,6 +15,10 @@ from libs.components.smallerFoodCard import SmallerFoodCard
 class DetailFood(MDScreen):
     foodName = StringProperty("")
     foodImage = ObjectProperty(None)
+    foodDescription = StringProperty('')
+    foodNation = StringProperty('')
+    foodTime = StringProperty('')
+    servingFor = StringProperty('')
     chefAvatar = ObjectProperty(None)
     chefFullname = StringProperty('')
     chefPycookId = StringProperty('')
@@ -32,6 +36,9 @@ class DetailFood(MDScreen):
 
         #-------- Get Food Detail from server----------
         food = []
+        recipes = []
+        makings = []
+        comments = []
         try:
             api_url = "http://localhost:5000/api/food/getByFoodId"
             response = requests.get(api_url, params = {'foodId': self.foodId})
@@ -40,6 +47,10 @@ class DetailFood(MDScreen):
                 food = response.json()
                 self.foodName = food['foodName']
                 self.foodImage = food['foodImage']
+                self.foodDescription = food['foodDescription']
+                self.foodTime = str(food['foodTime'])
+                self.servingFor = str(food['servingFor'])
+                self.foodNation = food['foodNation']
                 chefId = food['chef']['id']
                 self.chefAvatar = food['chef']['avatar']
                 self.chefFullname = food['chef']['fullname']

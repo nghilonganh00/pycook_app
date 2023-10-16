@@ -30,8 +30,8 @@ class IngredientCard(MDCard):
                     #-------- Get Food list by Hashtag----------
                     foods = []
                     try:
-                        api_url = "http://localhost:5000/api/food/getFoodByIngredient"
-                        response = requests.get(api_url, params={'ingredientId': self.ingredientId})
+                        api_url = "http://localhost:5000/api/food/getByIngredientName"
+                        response = requests.get(api_url, params={'ingredientName': self.ingredientName})
                         
                         if response.status_code == 200:
                             foods = response.json()
@@ -41,7 +41,7 @@ class IngredientCard(MDCard):
                     food_by_hashtag =  homepage.ids.food_by_hashtag
                     food_by_hashtag.clear_widgets()
                     for food in foods:
-                        food_card = FoodCard(foodName=food['foodName'], foodImage=food['foodImage'], chefAvatar=food['chef']['avatar'], chefFullname=food['chef']['fullname'], chefPycookID=food['chef']['pycookID'], heartTotal=food['heartTotal'], likeTotal=food['likeTotal'], deliciousTotal=food['deliciousTotal'], createdDate=food['created_at'])
+                        food_card = FoodCard(foodId=food['foodId'], foodName=food['foodName'], foodImage=food['foodImage'], chefAvatar=food['chef']['avatar'], chefFullname=food['chef']['fullname'], chefPycookID=food['chef']['pycookID'], heartTotal=food['heartTotal'], likeTotal=food['likeTotal'], deliciousTotal=food['deliciousTotal'], createdDate=food['created_at'])
                         food_by_hashtag.add_widget(food_card)
             else:
                 ingredient.md_bg_color = (119/255,120/255,115/255,255/255)

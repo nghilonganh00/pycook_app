@@ -81,230 +81,230 @@
                             width: self.minimum_width
                             height: self.minimum_height
                             spacing: 10
-            MDBoxLayout:
-                size_hint_y: None
-                height: self.minimum_height + 10
-                MDBoxLayout:
-                    orientation: 'vertical'
-                    size_hint_y: None
-                    height: self.minimum_height
-                    padding: (10, 20, 10, 20)
-                    spacing: 10
-                    md_bg_color: rgba(36, 36, 36, 255)
-                    MDLabel:
-                        text: 'Món đã lưu'
-                        font_size: 20
-                        font_name: 'BRoboto'
-                        color: rgba(255, 255, 255, 255)
-                        size_hint_y: None
-                        height: self.texture_size[1]
-                    MDScrollView:
-                        do_scroll_y: False
-                        size_hint_y: None
-                        height: 240
-                        bar_width: 0
-                        # md_bg_color: 'red'
-                        MDBoxLayout:
-                            orientation: 'horizontal'
-                            size_hint_y: None
-                            size_hint_x: 6
-                            height: self.minimum_height
-                            spacing: 10
-                            MDBoxLayout:
-                                orientation: 'vertical'
-                                size_hint: None, None
-                                width: 170
-                                height: 230
-                                md_bg_color: rgba(46, 46, 46, 255)
-                                canvas.before:
-                                    Color:
-                                        rgba: rgba(119,118,114,255) 
-                                    Line:
-                                        width: .6
-                                        rectangle: self.x, self.y, self.width, self.height
-                                Image:
-                                    source: 'assets/image/food/muc_trung_xao_he.png'
-                                    size_hint: None, None
-                                    size: 170, 130
-                                    allow_stretch: True
-                                    keep_ratio: False
-                                MDBoxLayout:
-                                    orientation: 'vertical'
-                                    size_hint_y: None
-                                    height: self.minimum_height
-                                    padding: 10, 0, 10, 0
-                                    MDLabel:
-                                        text: 'Món ăn của tôi'
-                                        font_size: 18
-                                        font_name: 'MRoboto'
-                                        color: rgba(255, 255, 255, 255)
-                                        size_hint_y: None
-                                        height: self.texture_size[1] + 10
-                                    MDFloatLayout:
-                                        size_hint: None, None
-                                        size: 170, 70
-                                        Image:
-                                            source: "assets/image/icon_app/smile.png"
-                                            size_hint: None, None
-                                            size: 40, 40
-                                            pos_hint: {"center_x": 0.1, "center_y": 0.3}
-                                        MDLabel:
-                                            text: '0'
-                                            color: rgba(248, 247, 246, 255)
-                                            font_size: 14
-                                            font_name: 'RRoboto'
-                                            pos_hint: {"center_x": 0.62, "center_y": 0.3}
-                                        Image:
-                                            source: "assets/image/icon_app/heart.png"
-                                            size_hint: None, None
-                                            size: 40, 40
-                                            pos_hint: {"center_x": 0.37, "center_y": 0.3}
-                                        MDLabel:
-                                            text: '0'
-                                            color: rgba(248, 247, 246, 255)
-                                            font_size: 14
-                                            font_name: 'RRoboto'
-                                            pos_hint: {"center_x": 0.9, "center_y": 0.3}
-                                        Image:
-                                            source: "assets/image/icon_app/hank.png"
-                                            size_hint: None, None
-                                            size: 40, 40
-                                            pos_hint: {"center_x": 0.64, "center_y": 0.3}
-                                        MDLabel:
-                                            text: '0'
-                                            color: rgba(248, 247, 246, 255)
-                                            font_size: 14
-                                            font_name: 'RRoboto'
-                                            pos_hint: {"center_x": 1.18, "center_y": 0.3}
-                            MDBoxLayout:
-                                orientation: 'vertical'
-                                size_hint: None, None
-                                width: 170
-                                height: 230
-                                canvas.before:
-                                    Color:
-                                        rgba: rgba(119,118,114,255) 
-                                    Line:
-                                        width: .6
-                                        rectangle: self.x, self.y, self.width, self.height
-                                Image:
-                                    source: 'assets/image/food/muc_trung_xao_he.png'
-                                    size_hint: None, None
-                                    size: 170, 130
-                                    allow_stretch: True
-                                    keep_ratio: False
-                                MDBoxLayout:
-                                    orientation: 'vertical'
-                                    size_hint: None, None
-                                    width: self.minimum_width
-                                    height: self.minimum_height
-                                    padding: 10, 0, 10, 0
-                                    MDLabel:
-                                        text: 'Món ăn của tôi'
-                                        font_size: 18
-                                        font_name: 'MRoboto'
-                                        color: rgba(255, 255, 255, 255)
-                                        size_hint_y: None
-                                        height: self.texture_size[1] + 10
-                                    MDFloatLayout:
-                                        size_hint: None, None
-                                        size: 170, 70
-                                        Image:
-                                            source: "assets/image/icon_app/smile.png"
-                                            size_hint: None, None
-                                            size: 40, 40
-                                            pos_hint: {"center_x": 0.1, "center_y": 0.3}
-                                        MDLabel:
-                                            text: '0'
-                                            color: rgba(248, 247, 246, 255)
-                                            font_size: 14
-                                            font_name: 'RRoboto'
-                                            pos_hint: {"center_x": 0.62, "center_y": 0.3}
-                                        Image:
-                                            source: "assets/image/icon_app/heart.png"
-                                            size_hint: None, None
-                                            size: 40, 40
-                                            pos_hint: {"center_x": 0.37, "center_y": 0.3}
-                                        MDLabel:
-                                            text: '0'
-                                            color: rgba(248, 247, 246, 255)
-                                            font_size: 14
-                                            font_name: 'RRoboto'
-                                            pos_hint: {"center_x": 0.9, "center_y": 0.3}
-                                        Image:
-                                            source: "assets/image/icon_app/hank.png"
-                                            size_hint: None, None
-                                            size: 40, 40
-                                            pos_hint: {"center_x": 0.64, "center_y": 0.3}
-                                        MDLabel:
-                                            text: '0'
-                                            color: rgba(248, 247, 246, 255)
-                                            font_size: 14
-                                            font_name: 'RRoboto'
-                                            pos_hint: {"center_x": 1.18, "center_y": 0.3}
-                            MDBoxLayout:
-                                orientation: 'vertical'
-                                size_hint: None, None
-                                width: 170
-                                height: 230
-                                canvas.before:
-                                    Color:
-                                        rgba: rgba(119,118,114,255) 
-                                    Line:
-                                        width: .6
-                                        rectangle: self.x, self.y, self.width, self.height
-                                FitImage:
-                                    source: 'assets/image/food/muc_trung_xao_he.png'
-                                    size_hint: None, None
-                                    size: 170, 130
-                                MDBoxLayout:
-                                    orientation: 'vertical'
-                                    size_hint_y: None
-                                    height: self.minimum_height
-                                    padding: 10, 0, 10, 0
-                                    MDLabel:
-                                        text: 'Món ăn của tôi'
-                                        font_size: 18
-                                        font_name: 'MRoboto'
-                                        color: rgba(255, 255, 255, 255)
-                                        size_hint_y: None
-                                        height: self.texture_size[1] + 10
-                                    MDFloatLayout:
-                                        size_hint: None, None
-                                        size: 170, 70
-                                        Image:
-                                            source: "assets/image/icon_app/smile.png"
-                                            size_hint: None, None
-                                            size: 40, 40
-                                            pos_hint: {"center_x": 0.1, "center_y": 0.3}
-                                        MDLabel:
-                                            text: '0'
-                                            color: rgba(248, 247, 246, 255)
-                                            font_size: 14
-                                            font_name: 'RRoboto'
-                                            pos_hint: {"center_x": 0.62, "center_y": 0.3}
-                                        Image:
-                                            source: "assets/image/icon_app/heart.png"
-                                            size_hint: None, None
-                                            size: 40, 40
-                                            pos_hint: {"center_x": 0.37, "center_y": 0.3}
-                                        MDLabel:
-                                            text: '0'
-                                            color: rgba(248, 247, 246, 255)
-                                            font_size: 14
-                                            font_name: 'RRoboto'
-                                            pos_hint: {"center_x": 0.9, "center_y": 0.3}
-                                        Image:
-                                            source: "assets/image/icon_app/hank.png"
-                                            size_hint: None, None
-                                            size: 40, 40
-                                            pos_hint: {"center_x": 0.64, "center_y": 0.3}
-                                        MDLabel:
-                                            text: '0'
-                                            color: rgba(248, 247, 246, 255)
-                                            font_size: 14
-                                            font_name: 'RRoboto'
-                                            pos_hint: {"center_x": 1.18, "center_y": 0.3}
+            # MDBoxLayout:
+            #     size_hint_y: None
+            #     height: self.minimum_height + 10
+            #     MDBoxLayout:
+            #         orientation: 'vertical'
+            #         size_hint_y: None
+            #         height: self.minimum_height
+            #         padding: (10, 20, 10, 20)
+            #         spacing: 10
+            #         md_bg_color: rgba(36, 36, 36, 255)
+            #         MDLabel:
+            #             text: 'Món đã lưu'
+            #             font_size: 20
+            #             font_name: 'BRoboto'
+            #             color: rgba(255, 255, 255, 255)
+            #             size_hint_y: None
+            #             height: self.texture_size[1]
+            #         MDScrollView:
+            #             do_scroll_y: False
+            #             size_hint_y: None
+            #             height: 240
+            #             bar_width: 0
+            #             # md_bg_color: 'red'
+            #             MDBoxLayout:
+            #                 orientation: 'horizontal'
+            #                 size_hint_y: None
+            #                 size_hint_x: 6
+            #                 height: self.minimum_height
+            #                 spacing: 10
+            #                 MDBoxLayout:
+            #                     orientation: 'vertical'
+            #                     size_hint: None, None
+            #                     width: 170
+            #                     height: 230
+            #                     md_bg_color: rgba(46, 46, 46, 255)
+            #                     canvas.before:
+            #                         Color:
+            #                             rgba: rgba(119,118,114,255) 
+            #                         Line:
+            #                             width: .6
+            #                             rectangle: self.x, self.y, self.width, self.height
+            #                     Image:
+            #                         source: 'assets/image/food/muc_trung_xao_he.png'
+            #                         size_hint: None, None
+            #                         size: 170, 130
+            #                         allow_stretch: True
+            #                         keep_ratio: False
+            #                     MDBoxLayout:
+            #                         orientation: 'vertical'
+            #                         size_hint_y: None
+            #                         height: self.minimum_height
+            #                         padding: 10, 0, 10, 0
+            #                         MDLabel:
+            #                             text: 'Món ăn của tôi'
+            #                             font_size: 18
+            #                             font_name: 'MRoboto'
+            #                             color: rgba(255, 255, 255, 255)
+            #                             size_hint_y: None
+            #                             height: self.texture_size[1] + 10
+            #                         MDFloatLayout:
+            #                             size_hint: None, None
+            #                             size: 170, 70
+            #                             Image:
+            #                                 source: "assets/image/icon_app/smile.png"
+            #                                 size_hint: None, None
+            #                                 size: 40, 40
+            #                                 pos_hint: {"center_x": 0.1, "center_y": 0.3}
+            #                             MDLabel:
+            #                                 text: '0'
+            #                                 color: rgba(248, 247, 246, 255)
+            #                                 font_size: 14
+            #                                 font_name: 'RRoboto'
+            #                                 pos_hint: {"center_x": 0.62, "center_y": 0.3}
+            #                             Image:
+            #                                 source: "assets/image/icon_app/heart.png"
+            #                                 size_hint: None, None
+            #                                 size: 40, 40
+            #                                 pos_hint: {"center_x": 0.37, "center_y": 0.3}
+            #                             MDLabel:
+            #                                 text: '0'
+            #                                 color: rgba(248, 247, 246, 255)
+            #                                 font_size: 14
+            #                                 font_name: 'RRoboto'
+            #                                 pos_hint: {"center_x": 0.9, "center_y": 0.3}
+            #                             Image:
+            #                                 source: "assets/image/icon_app/hank.png"
+            #                                 size_hint: None, None
+            #                                 size: 40, 40
+            #                                 pos_hint: {"center_x": 0.64, "center_y": 0.3}
+            #                             MDLabel:
+            #                                 text: '0'
+            #                                 color: rgba(248, 247, 246, 255)
+            #                                 font_size: 14
+            #                                 font_name: 'RRoboto'
+            #                                 pos_hint: {"center_x": 1.18, "center_y": 0.3}
+            #                 MDBoxLayout:
+            #                     orientation: 'vertical'
+            #                     size_hint: None, None
+            #                     width: 170
+            #                     height: 230
+            #                     canvas.before:
+            #                         Color:
+            #                             rgba: rgba(119,118,114,255) 
+            #                         Line:
+            #                             width: .6
+            #                             rectangle: self.x, self.y, self.width, self.height
+            #                     Image:
+            #                         source: 'assets/image/food/muc_trung_xao_he.png'
+            #                         size_hint: None, None
+            #                         size: 170, 130
+            #                         allow_stretch: True
+            #                         keep_ratio: False
+            #                     MDBoxLayout:
+            #                         orientation: 'vertical'
+            #                         size_hint: None, None
+            #                         width: self.minimum_width
+            #                         height: self.minimum_height
+            #                         padding: 10, 0, 10, 0
+            #                         MDLabel:
+            #                             text: 'Món ăn của tôi'
+            #                             font_size: 18
+            #                             font_name: 'MRoboto'
+            #                             color: rgba(255, 255, 255, 255)
+            #                             size_hint_y: None
+            #                             height: self.texture_size[1] + 10
+            #                         MDFloatLayout:
+            #                             size_hint: None, None
+            #                             size: 170, 70
+            #                             Image:
+            #                                 source: "assets/image/icon_app/smile.png"
+            #                                 size_hint: None, None
+            #                                 size: 40, 40
+            #                                 pos_hint: {"center_x": 0.1, "center_y": 0.3}
+            #                             MDLabel:
+            #                                 text: '0'
+            #                                 color: rgba(248, 247, 246, 255)
+            #                                 font_size: 14
+            #                                 font_name: 'RRoboto'
+            #                                 pos_hint: {"center_x": 0.62, "center_y": 0.3}
+            #                             Image:
+            #                                 source: "assets/image/icon_app/heart.png"
+            #                                 size_hint: None, None
+            #                                 size: 40, 40
+            #                                 pos_hint: {"center_x": 0.37, "center_y": 0.3}
+            #                             MDLabel:
+            #                                 text: '0'
+            #                                 color: rgba(248, 247, 246, 255)
+            #                                 font_size: 14
+            #                                 font_name: 'RRoboto'
+            #                                 pos_hint: {"center_x": 0.9, "center_y": 0.3}
+            #                             Image:
+            #                                 source: "assets/image/icon_app/hank.png"
+            #                                 size_hint: None, None
+            #                                 size: 40, 40
+            #                                 pos_hint: {"center_x": 0.64, "center_y": 0.3}
+            #                             MDLabel:
+            #                                 text: '0'
+            #                                 color: rgba(248, 247, 246, 255)
+            #                                 font_size: 14
+            #                                 font_name: 'RRoboto'
+            #                                 pos_hint: {"center_x": 1.18, "center_y": 0.3}
+            #                 MDBoxLayout:
+            #                     orientation: 'vertical'
+            #                     size_hint: None, None
+            #                     width: 170
+            #                     height: 230
+            #                     canvas.before:
+            #                         Color:
+            #                             rgba: rgba(119,118,114,255) 
+            #                         Line:
+            #                             width: .6
+            #                             rectangle: self.x, self.y, self.width, self.height
+            #                     FitImage:
+            #                         source: 'assets/image/food/muc_trung_xao_he.png'
+            #                         size_hint: None, None
+            #                         size: 170, 130
+            #                     MDBoxLayout:
+            #                         orientation: 'vertical'
+            #                         size_hint_y: None
+            #                         height: self.minimum_height
+            #                         padding: 10, 0, 10, 0
+            #                         MDLabel:
+            #                             text: 'Món ăn của tôi'
+            #                             font_size: 18
+            #                             font_name: 'MRoboto'
+            #                             color: rgba(255, 255, 255, 255)
+            #                             size_hint_y: None
+            #                             height: self.texture_size[1] + 10
+            #                         MDFloatLayout:
+            #                             size_hint: None, None
+            #                             size: 170, 70
+            #                             Image:
+            #                                 source: "assets/image/icon_app/smile.png"
+            #                                 size_hint: None, None
+            #                                 size: 40, 40
+            #                                 pos_hint: {"center_x": 0.1, "center_y": 0.3}
+            #                             MDLabel:
+            #                                 text: '0'
+            #                                 color: rgba(248, 247, 246, 255)
+            #                                 font_size: 14
+            #                                 font_name: 'RRoboto'
+            #                                 pos_hint: {"center_x": 0.62, "center_y": 0.3}
+            #                             Image:
+            #                                 source: "assets/image/icon_app/heart.png"
+            #                                 size_hint: None, None
+            #                                 size: 40, 40
+            #                                 pos_hint: {"center_x": 0.37, "center_y": 0.3}
+            #                             MDLabel:
+            #                                 text: '0'
+            #                                 color: rgba(248, 247, 246, 255)
+            #                                 font_size: 14
+            #                                 font_name: 'RRoboto'
+            #                                 pos_hint: {"center_x": 0.9, "center_y": 0.3}
+            #                             Image:
+            #                                 source: "assets/image/icon_app/hank.png"
+            #                                 size_hint: None, None
+            #                                 size: 40, 40
+            #                                 pos_hint: {"center_x": 0.64, "center_y": 0.3}
+            #                             MDLabel:
+            #                                 text: '0'
+            #                                 color: rgba(248, 247, 246, 255)
+            #                                 font_size: 14
+            #                                 font_name: 'RRoboto'
+            #                                 pos_hint: {"center_x": 1.18, "center_y": 0.3}
     MDIconButton:
         icon: "chevron-left"
         pos_hint: {"center_x": 0.08, "center_y": 0.96}

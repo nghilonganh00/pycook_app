@@ -1,5 +1,6 @@
 from datetime import datetime
 
+
 def format_time_difference(createdDate):
     time_format = "%a, %d %b %Y %H:%M:%S GMT"
     time_object = datetime.strptime(createdDate, time_format)
@@ -10,17 +11,18 @@ def format_time_difference(createdDate):
     hours, remainder = divmod(time_difference.seconds, 3600)
     minutes, seconds = divmod(remainder, 60)
     if years != 0:
-        return f'cach day {years} nam'
+        return f"cách đây {years} năm"
     elif months != 0:
-        return f'cach day {months} thang'
+        return f"cách đây {months} tháng"
     elif days != 0:
-        return f'cach day {days} ngay'
+        return f"cách đây {days} ngày"
     elif hours != 0:
-        return f'cach day {hours} gio'
+        return f"cách đây {hours} giờ"
     elif minutes != 0:
-        return f'cach day {minutes} phut'
+        return f"cách đây {minutes} phút"
     elif seconds != 0:
-        return f'cach day {seconds} giay'
+        return f"cách đây {seconds} giây"
+
 
 def conver_date_fotmat(createdDate):
     time_format = "%a, %d %b %Y %H:%M:%S GMT"
@@ -28,5 +30,3 @@ def conver_date_fotmat(createdDate):
     formatted_date = time_object.strftime("%d tháng %m, %Y")
 
     return formatted_date
-
-

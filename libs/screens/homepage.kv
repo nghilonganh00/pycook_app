@@ -9,19 +9,25 @@
         size_hint_x: 1
         pos_hint: {'center_x': 0.5,'center_y': 0.96}
         padding: 10
-        spacing: 10
+        spacing: 40
         
 
         Image:
             source: "assets/logo.png"
             size_hint_x: .14
             pos_hint: {'center_x': 0.1, 'center_y': .5}
-        Image:
-            source: "assets/image/icon_app/searchHome.png"
+        MDCard:
             size_hint: None, None
-            size: 500, 40
+            width: self.minimum_width
+            height: self.minimum_height
             pos_hint: {'center_x': 0.54, 'center_y': .5}
-            on_touch_up: app.root.current = 'searchpage'
+            on_release: app.root.current = 'searchpage'
+            md_bg_color: rgba(255, 255, 255, 0)
+            Image:
+                source: "assets/image/icon_app/searchHome.png"
+                size_hint: None, None
+                size: 240, 40
+                pos_hint: {'center_x': 0.5, 'center_y': .5}
             
        
     MDBoxLayout: 
@@ -50,13 +56,13 @@
                     width: 1.2
                     points: (self.x, self.y, self.right, self.y)
     MDLabel:
-        text: "Trong tu lanh nha ban co gi"
+        text: "Trong tủ lạnh nhà bạn có gì?"
         pos_hint: {"x": 0.05, 'center_y': 0.82}
         bold: True
         font_size: 17
         color: rgba(246,247,241,255)
     MDLabel:
-        text: "Chọn đến 2 nguyên liệu"
+        text: "Chọn 1 nguyên liệu "
         pos_hint: {"x": 0.05, 'center_y': 0.79}
         font_size: 15
         color: rgba(235,235,235,255)

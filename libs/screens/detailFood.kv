@@ -69,7 +69,7 @@
                     orientation: 'vertical'
                     spacing: 10
                     MDLabel:
-                        text: 'Món này có thể ăn với cơm hoặc ăn chơi với bánh phồng tôm làm mồi nhắm lai rai.'
+                        text: root.foodDescription
                         color: rgba(250,244,224,255)
                         font_size: 17
                         font_name: 'MRoboto'
@@ -130,7 +130,7 @@
                         pos_hint: {'center_y': .5}
                         font_size: 20
                     Label:
-                        text: '20p'
+                        text: root.foodTime + 'phút'
                         color: rgba(247,246,242,255)
                         font_size: 18
                         font_name: 'MRoboto'
@@ -160,7 +160,7 @@
                         font_size: 20
                         pos_hint: {'center_y': .5}
                     MDLabel:
-                        text: '4 người'
+                        text: root.servingFor + 'người'
                         color: rgba(247,246,242,255)
                         pos_hint: {'center_y': .5}
                         font_size: 16
