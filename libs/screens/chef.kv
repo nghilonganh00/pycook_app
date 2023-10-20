@@ -1,5 +1,5 @@
 #:kivy 2.2.1
-<Account>:
+<Chef>:
     md_bg_color: rgba(15,15,15,255)
     MDScrollView:
         bar_width: 0
@@ -12,9 +12,12 @@
                 size: 360, 260
                 md_bg_color: rgba(36, 36, 36, 255)
                 Image:
-                    source: 'assets/image/avatar/mai_ngo.png'
+                    source: root.avatar
                     pos_hint: {"center_x": 0.14, "center_y": 0.58}
-                    size_hint: .5, .5
+                    size_hint: None, None
+                    size: 70, 70
+                    allow_stretch: True
+                    keep_ratio: False
                 
                 MDLabel:
                     text: root.fullname
@@ -29,19 +32,20 @@
                     font_size: 16
                     color: rgba(248,245,242,255)
                 MDLabel:
-                    text: "0 Bạn bếp"
+                    text: root.followedByTotal + " Bạn bếp"
                     pos_hint: {"center_x": 0.56, "center_y": 0.32}
                     font_name: "RRoboto"
                     font_size: 14
                     color: rgba(248,245,242,255)
                 MDLabel:
-                    text: "0 Người quan tâm"
+                    text: root.followersTotal + " Người quan tâm"
                     font_name: "RRoboto"
                     pos_hint: {"center_x": 0.86, "center_y": 0.32}
                     font_size: 14
                     color: rgba(248,245,242,255)
                 MDFlatButton:
-                    text: "Sửa thông tin cá nhân"
+                    id: follow_button
+                    text: "Kết bạn bếp"
                     size_hint_x: 0.9
                     pos_hint: {"center_x": 0.5, "center_y": 0.14}
                     font_name: "RRoboto"
@@ -50,6 +54,7 @@
                     line_width: 1.1
                     border_radius: [20] 
                     line_color: rgba(147, 146, 144, 255)
+                    on_release: root.on_follow_chef()
             MDBoxLayout:
                 size_hint_y: None
                 height: self.minimum_height + 10
@@ -81,37 +86,6 @@
                             width: self.minimum_width
                             height: self.minimum_height
                             spacing: 10
-            MDBoxLayout:
-                size_hint_y: None
-                height: self.minimum_height + 10
-                MDBoxLayout:
-                    orientation: 'vertical'
-                    size_hint_y: None
-                    height: self.minimum_height
-                    padding: (10, 20, 10, 20)
-                    spacing: 10
-                    md_bg_color: rgba(36, 36, 36, 255)
-                    MDLabel:
-                        id: favorite_food_total
-                        text: 'Món đã lưu'
-                        font_size: 20
-                        font_name: 'BRoboto'
-                        color: rgba(255, 255, 255, 255)
-                        size_hint_y: None
-                        height: self.texture_size[1]
-                    MDScrollView:
-                        do_scroll_y: False
-                        size_hint_y: None
-                        height: 240
-                        bar_width: 0
-                        MDBoxLayout:
-                            id: my_favorite_food
-                            orientation: 'horizontal'
-                            size_hint_y: None
-                            size_hint_x: 6
-                            height: self.minimum_height
-                            spacing: 10
-            #                 
     MDIconButton:
         icon: "chevron-left"
         pos_hint: {"center_x": 0.08, "center_y": 0.96}

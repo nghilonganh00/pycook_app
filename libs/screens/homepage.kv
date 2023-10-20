@@ -37,24 +37,34 @@
         pos_hint: {'center_x': 0.5,'center_y': 0.90}
         padding: 10
         spacing: 10
-        MDLabel:
-            text: "Cac Ban Bep"
-            halign: "center"
-            bold: True
-            font_size: 17
-            color: rgba(147,146,142,255)
-        MDLabel:
-            text: "Kho Cam Hung"
-            halign: "center"
-            bold: True
-            font_size: 17
-            color: rgba(249,248,246,255)
-            canvas.before:
-                Color:
-                    rgb: rgba(252,184,103,255)
-                Line:
-                    width: 1.2
-                    points: (self.x, self.y, self.right, self.y)
+        MDCard:
+            size_hint: None, None
+            size: 160, 40
+            md_bg_color: rgba(255, 255, 255, 0)
+            on_release: app.root.current = 'follower'
+            MDLabel:
+                text: "Các Bạn Bếp"
+                halign: "center"
+                bold: True
+                font_size: 17
+                color: rgba(147,146,142,255)
+        MDCard:
+            size_hint: None, None
+            size: 160, 40
+            md_bg_color: rgba(255, 255, 255, 0)
+            on_release: app.root.current = 'homepage'
+            MDLabel:
+                text: "Kho Cam Hung"
+                halign: "center"
+                bold: True
+                font_size: 17
+                color: rgba(249,248,246,255)
+                canvas.before:
+                    Color:
+                        rgb: rgba(252,184,103,255)
+                    Line:
+                        width: 1.2
+                        points: (self.x, self.y, self.right, self.y)
     MDLabel:
         text: "Trong tủ lạnh nhà bạn có gì?"
         pos_hint: {"x": 0.05, 'center_y': 0.82}

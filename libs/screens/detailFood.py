@@ -15,69 +15,90 @@ from libs.components.smallerFoodCard import SmallerFoodCard
 class DetailFood(MDScreen):
     foodName = StringProperty("")
     foodImage = ObjectProperty(None)
-    foodDescription = StringProperty('')
-    foodNation = StringProperty('')
-    foodTime = StringProperty('')
-    servingFor = StringProperty('')
+    foodDescription = StringProperty("")
+    foodNation = StringProperty("")
+    foodTime = StringProperty("")
+    servingFor = StringProperty("")
     chefAvatar = ObjectProperty(None)
-    chefFullname = StringProperty('')
-    chefPycookId = StringProperty('')
-    createdDate = StringProperty('')
-    heartTotal = StringProperty('')
-    likeTotal = StringProperty('')
-    deliciousTotal = StringProperty('')
+    chefFullname = StringProperty("")
+    chefPycookId = StringProperty("")
+    createdDate = StringProperty("")
+    heartTotal = StringProperty("")
+    likeTotal = StringProperty("")
+    deliciousTotal = StringProperty("")
     comments = ObjectProperty(None)
+
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.foodId = 1
-        
+
     def on_enter(self):
         app = App.get_running_app()
 
-        #-------- Get Food Detail from server----------
+        # -------- Get Food Detail from server----------
         food = []
         recipes = []
         makings = []
         comments = []
         try:
             api_url = "http://localhost:5000/api/food/getByFoodId"
-            response = requests.get(api_url, params = {'foodId': self.foodId})
-            
+            response = requests.get(api_url, params={"foodId": self.foodId})
+
             if response.status_code == 200:
                 food = response.json()
-                self.foodName = food['foodName']
-                self.foodImage = food['foodImage']
-                self.foodDescription = food['foodDescription']
-                self.foodTime = str(food['foodTime'])
-                self.servingFor = str(food['servingFor'])
-                self.foodNation = food['foodNation']
-                chefId = food['chef']['id']
-                self.chefAvatar = food['chef']['avatar']
-                self.chefFullname = food['chef']['fullname']
-                self.chefPycookId = food['chef']['pycookID']
-                recipes = food['recipes']
-                makings = food['makings']
-                self.createdDate = conver_date_fotmat(food['created_at'])
-                self.heartTotal = str(food['heartTotal'])
-                self.likeTotal = str(food['likeTotal'])
-                self.deliciousTotal = str(food['deliciousTotal'])
-                comments = food['comments']
+                self.foodName = food["foodName"]
+                self.foodImage = food["foodImage"]
+                self.foodDescription = food["foodDescription"]
+                self.foodTime = str(food["foodTime"])
+                self.servingFor = str(food["servingFor"])
+                self.foodNation = food["foodNation"]
+                self.chefId = food["chef"]["id"]
+                self.chefAvatar = (
+                    food["chef"]["avatar"]
+                    if food["chef"]["avatar"] != None
+                    else "assets/image/avatar/chef.png"
+                )
+                print("chefAvatar: ", self.chefAvatar)
+                self.chefFullname = food["chef"]["fullname"]
+                self.chefPycookId = food["chef"]["pycookID"]
+                recipes = food["recipes"]
+                makings = food["makings"]
+                self.createdDate = conver_date_fotmat(food["created_at"])
+                self.heartTotal = str(food["heartTotal"])
+                self.likeTotal = str(food["likeTotal"])
+                self.deliciousTotal = str(food["deliciousTotal"])
+                comments = food["comments"]
             else:
                 print("Loi dang nhap")
         except Exception as e:
             print(e)
-        
+
+        # Save food
+        save_food_button = self.ids.save_food_button
+        save_food_icon = self.ids.save_food_icon
+        save_food_text = self.ids.save_food_text
+        try:
+            api_url = "http://localhost:5000/api/favoriteFood/hasSavedFood"
+            response = requests.get(api_url, params={"foodId": self.foodId})
+
+            if response.status_code == 200:
+                save_food_text.text = "Đã lưu món"
+                save_food_icon.icon = "bookmark"
+            else:
+                save_food_text.text = "Lưu món"
+                save_food_icon.icon = "bookmark-outline"
+        except Exception as e:
+            print(e)
+
         # Recipes of Food
         recipes_box = self.ids.recipes
         children = self.ids.recipes.children
 
         self.ids.recipes.clear_widgets()
         for recipe in recipes:
-            recipe_label = Recipe(
-                ingredientName=recipe
-            )
+            recipe_label = Recipe(ingredientName=recipe)
             recipes_box.add_widget(recipe_label)
-        
+
         # Making of Food
         makings_box = self.ids.makings
         children = self.ids.makings.children
@@ -85,33 +106,29 @@ class DetailFood(MDScreen):
         self.ids.makings.clear_widgets()
         for making in makings:
             making_box = MakingBox(
-                makingOrder=making['makingOrder'],
-                makingContent=making['makingContent']
+                makingOrder=making["makingOrder"], makingContent=making["makingContent"]
             )
             makings_box.add_widget(making_box)
-        
+
         # Comment of Food
         comments_box = self.ids.comments
         children = self.ids.comments.children
 
         self.ids.comments.clear_widgets()
         for comment in comments:
-            print(comment['content'])
+            print(comment["content"])
             comment_box = Comment(
-                userAvatar = comment['userAvatar'],
-                userFullname = comment['userFullname'],
-                userPycookID = comment['userPycookId'],
-                commentContent = comment['content']
+                userAvatar=comment["userAvatar"],
+                userFullname=comment["userFullname"],
+                userPycookID=comment["userPycookId"],
+                commentContent=comment["content"],
             )
             comments_box.add_widget(comment_box)
 
-
-
-
-        #-------- Get Chef's lastest Food from server----------
+        # -------- Get Chef's lastest Food from server----------
         try:
             api_url = "http://localhost:5000/api/food/getLastestByUserId"
-            response = requests.get(api_url, params = {'userId': chefId})
+            response = requests.get(api_url, params={"userId": self.chefId})
             lastest_foods = self.ids.lastest_foods
             children = self.ids.lastest_foods.children
 
@@ -121,55 +138,78 @@ class DetailFood(MDScreen):
                 lastest_foods_res = response.json()
                 for lastest_food in lastest_foods_res:
                     smaller_food_card = SmallerFoodCard(
-                        foodId=lastest_food['foodId'], 
-                        foodName=lastest_food['foodName'], 
-                        foodImage=lastest_food['foodImage']
+                        foodId=lastest_food["foodId"],
+                        foodName=lastest_food["foodName"],
+                        foodImage=lastest_food["foodImage"],
                     )
                     lastest_foods.add_widget(smaller_food_card)
-                
+
             else:
                 print("Loi dang nhap")
         except Exception as e:
             print(e)
 
+    def on_click_chef(self):
+        app = App.get_running_app()
 
+        app.root.current = "chef"
+        chef = app.manager.get_screen("chef")
+        chef.chefId = self.chefId
+
+    def on_save_food(self):
+        save_food_button = self.ids.save_food_button
+        save_food_icon = self.ids.save_food_icon
+        save_food_text = self.ids.save_food_text
+        try:
+            api_url = "http://localhost:5000/api/favoriteFood/create"
+            response = requests.get(
+                api_url, params={"userId": 1, "foodId": self.foodId}
+            )
+            print(response.status_code)
+            if response.status_code == 201:
+                save_food_text.text = "Đã lưu món"
+                save_food_icon.icon = "bookmark"
+            else:
+                save_food_text.text = "Lưu món"
+                save_food_icon.icon = "bookmark-outline"
+        except Exception as e:
+            print(e)
 
     def on_like_click(self):
         try:
             api_url = "http://localhost:5000/api/food/like"
-            response = requests.get(api_url, params={'foodId': self.foodId})
-            
+            response = requests.get(api_url, params={"foodId": self.foodId})
+
             if response.status_code == 200:
                 self.likeTotal = str(response.json())
         except Exception as e:
             print(e)
+
     def send_comment(self):
         app = App.get_running_app()
-       
+
         # if not app.user:
         #     self.manager.current = 'login'
         #     return
         comment_input = self.ids.comment_input
         comment_res = {
-            'userId': 1,
-            'foodId': self.foodId,
-            'commentContent': comment_input.text
-            
+            "userId": 1,
+            "foodId": self.foodId,
+            "commentContent": comment_input.text,
         }
         try:
             api_url = "http://localhost:5000/api/comment/create"
             response = requests.post(api_url, json=comment_res)
             comments = self.ids.comments
-            
+
             if response.status_code == 201:
                 comment_box = Comment(
-                        userAvatar = 'assets/image/avatar/mai_ngo.png',
-                        userFullname = str(self.foodId),
-                        userPycookID = 'pycook_124934',
-                        commentContent = comment_input.text
-                    )
+                    userAvatar="assets/image/avatar/mai_ngo.png",
+                    userFullname=str(self.foodId),
+                    userPycookID="pycook_124934",
+                    commentContent=comment_input.text,
+                )
                 comments.add_widget(comment_box)
-                
+
         except Exception as e:
             print(e)
-    

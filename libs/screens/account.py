@@ -17,6 +17,7 @@ class Account(MDScreen):
             self.avatar = app.user['avatar']
             self.pycookID = app.user['pycookID']
 
+            # My food
             my_food = self.ids.my_food
             my_food_total = self.ids.my_food_total
 
@@ -32,3 +33,21 @@ class Account(MDScreen):
                     likeTotal=food['likeTotal'],
                 )
                 my_food.add_widget(small_food_card)
+            
+            # My favorite food
+            my_favorite_food = self.ids.my_favorite_food
+            favorite_food_total = self.ids.favorite_food_total
+
+            favorite_food_total.text = 'Món ăn đã lưu (' + str(len(app.user['foods'])) + ')'
+            my_favorite_food.clear_widgets()
+            for food in app.user['favorite_foods']:
+                small_food_card = SmallFoodCard(
+                    foodId=food['foodId'], 
+                    foodName=food['foodName'], 
+                    foodImage=food['foodImage'], 
+                    deliciousTotal=food['deliciousTotal'],
+                    heartTotal=food['heartTotal'],
+                    likeTotal=food['likeTotal'],
+                )
+                my_favorite_food.add_widget(small_food_card)
+            

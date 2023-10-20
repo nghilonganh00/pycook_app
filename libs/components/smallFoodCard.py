@@ -1,8 +1,8 @@
-from kivymd.uix.boxlayout import MDBoxLayout
+from kivymd.uix.card import MDCard
 from kivy.properties import StringProperty, ObjectProperty, NumericProperty
 
 from kivy.app import App
-class SmallFoodCard(MDBoxLayout):
+class SmallFoodCard(MDCard):
     foodId = 0
     foodName = StringProperty('')
     foodImage = ObjectProperty(None)

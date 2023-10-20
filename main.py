@@ -2,10 +2,8 @@ from kivy.core.text import LabelBase
 from kivymd.app import MDApp
 from kivy.lang import Builder
 from kivy.core.window import Window
-from kivy.uix.screenmanager import ScreenManager, Screen, NoTransition
+from kivy.uix.screenmanager import ScreenManager, NoTransition
 
-from kivymd.uix.boxlayout import MDBoxLayout
-from kivymd.uix.tab import MDTabsBase
 
 from libs.screens.login import Login
 from libs.screens.signup import Signup
@@ -14,6 +12,8 @@ from libs.screens.account import Account
 from libs.screens.detailFood import DetailFood
 from libs.screens.searchpage import SearchPage
 from libs.screens.addpage import AddPage
+from libs.screens.chef import Chef
+from libs.screens.follower import Follower
 
 Window.size = (284, 604)
 
@@ -24,17 +24,19 @@ kv = """
 
 class PyCook(MDApp):
     is_logged_in = False
-    user = {}
+    user = {"userId": 2}
 
     def build(self):
         self.load_all_kv_files()
         self.manager = ScreenManager(transition=NoTransition())
+        self.manager.add_widget(Follower(name="follower"))
+        self.manager.add_widget(Chef(name="chef"))
+        self.manager.add_widget(SearchPage(name="searchpage"))
         self.manager.add_widget(AddPage(name="addpage"))
         self.manager.add_widget(HomePage(name="homepage"))
         self.manager.add_widget(Login(name="login"))
         self.manager.add_widget(Signup(name="signup"))
         self.manager.add_widget(Account(name="account"))
-        self.manager.add_widget(SearchPage(name="searchpage"))
         self.manager.add_widget(DetailFood(name="detailFood"))
         return self.manager
 
@@ -45,13 +47,13 @@ class PyCook(MDApp):
         Builder.load_file("libs\\components\\recipe.kv")
         Builder.load_file("libs\\components\\makingBox.kv")
         Builder.load_file("libs\\components\\comment.kv")
-        Builder.load_file("libs\\components\\foodSearch.kv")
         Builder.load_file("libs\\components\\smallFoodCard.kv")
         Builder.load_file("libs\\components\\smallerFoodCard.kv")
         Builder.load_file("libs\\components\\fileChooserBoxLayout.kv")
         Builder.load_file("libs\\components\\ingredientInput.kv")
         Builder.load_file("libs\\components\\makingInput.kv")
         Builder.load_file("libs\\components\\bottomNav.kv")
+        Builder.load_file("libs\\components\\foodSearch.kv")
 
         Builder.load_file("libs\\screens\\addpage.kv")
         Builder.load_file("libs\\screens\\searchpage.kv")
@@ -60,6 +62,8 @@ class PyCook(MDApp):
         Builder.load_file("libs\\screens\\login.kv")
         Builder.load_file("libs\\screens\\signup.kv")
         Builder.load_file("libs\\screens\\detailFood.kv")
+        Builder.load_file("libs\\screens\\chef.kv")
+        Builder.load_file("libs\\screens\\follower.kv")
 
 
 if __name__ == "__main__":

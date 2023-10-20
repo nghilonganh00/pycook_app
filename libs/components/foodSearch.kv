@@ -2,7 +2,7 @@
 
 <FoodSearch>:
     size_hint: None, None 
-    width: 320
+    width: 330
     height: self.minimum_height
     md_bg_color: rgba(46, 46, 46, 255)
     padding: 20, 14, 20, 14
@@ -23,7 +23,7 @@
                 font_size: 18
                 font_name: 'MRoboto'
                 size_hint: None, None
-                width: 140
+                width: 150
                 height: self.texture_size[1]
             MDBoxLayout:
                 orientation: "horizontal"
@@ -34,19 +34,18 @@
                     source: root.chefAvatar
                     size_hint: None, None
                     size: 20, 20
+                    allow_stretch: True
+                    keep_ratio: False
                 MDLabel:
                     text: root.chefFullname
                     color: rgba(248,246,242,255)
                     font_size: 16
                     font_name: 'LRoboto'
-                    # size_hint: None, None
-                    # width: 140
-                    # height: self.texture_size[1]
             MDLabel:
-                text: root.recipe
+                text: root.recipes
                 color: rgba(248,246,242,255)
                 font_size: 16
-                font_name: 'LRoboto'
+                font_name: 'RRoboto'
                 size_hint: None, None
                 width: 130
                 height: self.texture_size[1]
@@ -58,4 +57,5 @@
                 source: root.foodImage
                 size_hint: None, None
                 size: 130, 180
-                radius: 10
+                allow_stretch: True
+                keep_ratio: False

@@ -1,0 +1,157 @@
+#:kivy 2.2.1
+#: import BottomNav libs.components.bottomNav
+
+<Follower>:
+    md_bg_color: rgba(36,36,36,255)
+    MDFloatLayout: 
+        orientation: 'horizontal'
+        size_hint_y: .08
+        size_hint_x: 1
+        pos_hint: {'center_x': 0.5,'center_y': 0.96}
+        padding: 10
+        spacing: 40
+
+        Image:
+            source: "assets/logo.png"
+            size_hint_x: .14
+            pos_hint: {'center_x': 0.1, 'center_y': .5}
+        MDCard:
+            size_hint: None, None
+            width: self.minimum_width
+            height: self.minimum_height
+            pos_hint: {'center_x': 0.54, 'center_y': .5}
+            on_release: app.root.current = 'searchpage'
+            md_bg_color: rgba(255, 255, 255, 0)
+            Image:
+                source: "assets/image/icon_app/searchHome.png"
+                size_hint: None, None
+                size: 240, 40
+                pos_hint: {'center_x': 0.5, 'center_y': .5}
+    MDBoxLayout: 
+        orientation: 'horizontal'
+        size_hint_y: .09
+        size_hint_x: 1
+        pos_hint: {'center_x': 0.5,'center_y': 0.90}
+        padding: 10
+        spacing: 10
+        MDCard:
+            size_hint: None, None
+            size: 160, 40
+            md_bg_color: rgba(255, 255, 255, 0)
+            on_release: app.root.current = 'follower'
+            MDLabel:
+                text: "Các Bạn Bếp"
+                halign: "center"
+                bold: True
+                font_size: 17
+                color: rgba(147,146,142,255)
+        MDCard:
+            size_hint: None, None
+            size: 160, 40
+            md_bg_color: rgba(255, 255, 255, 0)
+            on_release: app.root.current = 'homepage'
+            MDLabel:
+                text: "Kho Cam Hung"
+                halign: "center"
+                bold: True
+                font_size: 17
+                color: rgba(249,248,246,255)
+                canvas.before:
+                    Color:
+                        rgb: rgba(252,184,103,255)
+                    Line:
+                        width: 1.2
+                        points: (self.x, self.y, self.right, self.y)
+    MDScrollView:
+        bar_width: 0
+        MDBoxLayout:
+            id: follower_list
+            orientation: 'vertical'
+            size_hint_y: None  
+            height: self.minimum_height + 130
+            MDCard:
+                size_hint: None, None
+                width: self.minimum_width
+                height: self.minimum_height
+                pos_hint: {'center_x': .5}
+                md_bg_color: rgba(46, 46, 46, 255)
+                MDBoxLayout:  
+                    orientation: 'vertical'
+                    size_hint: None, None
+                    width: 350
+                    height: self.minimum_height
+                    spacing: 14
+                    padding: [10, 20, 20, 10]
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+                        size_hint: None, None
+                        height: self.minimum_height
+                        spacing: 10
+                        Image:
+                            source: "assets/image/avatar/mai_ngo.png"
+                            size_hint: None, None
+                            size: 40, 40
+                            allow_stretch: True
+                            keep_ratio: False
+                        Label:
+                            text: "Dory"
+                            font_size: 16
+                            color: rgba(255,255,255,255)
+                            size_hint: None, None
+                            width: self.texture_size[0]
+                            height: self.texture_size[1] + 20
+                            multiline: False
+                            
+                    Image:
+                        source: "assets/image/food/muc_trung_xao_he.png"
+                        size_hint: None, None
+                        size: 330, 240
+                        allow_stretch: True
+                        keep_ratio: False
+                    
+                    Label:
+                        text: "Mực Trứng Xào Hẹ"
+                        font_size: 20
+                        bold: True
+                        color: rgba(255,255,255,255)
+                        size_hint: None, None
+                        width: self.texture_size[0]
+                        height: self.texture_size[1]
+                        multiline: False
+
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+                        size_hint_y: None
+                        height: self.minimum_height
+                        spacing: 10
+                        MDFloatLayout:
+                            size_hint: None, None
+                            size: 40, 20
+                            md_bg_color: 'red'
+                        MDFloatLayout:
+                            size_hint: None, None
+                            size: 40, 20
+                            md_bg_color: 'red'
+                        MDFloatLayout:
+                            size_hint: None, None
+                            size: 40, 20
+                            md_bg_color: 'red'
+                    MDBoxLayout:
+                        size_hint_y: None 
+                        height: self.minimum_height + 2
+                        canvas:
+                            Color:
+                                rgba: 1, 1, 1, 0.3
+                            Rectangle:
+                                pos: self.x, self.y + 2
+                                size: self.width, 1.4
+                    MDLabel:
+                        text: "Khi nho quá nhiều ăn không hết, ép nước ngâm rượu, bây giờ thì"
+                        font_size: 20
+                        color: rgba(255,255,255,255)
+                        size_hint: None, None
+                        width: 310
+                        height: self.texture_size[1]
+                        # multiline: False
+                        # pos_hint: {'center_x': .3}
+
